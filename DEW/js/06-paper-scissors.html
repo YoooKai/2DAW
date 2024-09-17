@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <p>Rock Paper Scissors</p>
+    <button onclick="
+
+    let computerMove = '';
+    //num entre 0 y 1 al azar
+        const randomNumber = Math.random();
+
+        if (randomNumber >= 0 && randomNumber < 1/3) {
+            computerMove = 'rock';
+        } else if (randomNumber >= 1/3 && randomNumber < 2/3){
+            computerMove = 'paper';
+
+        } else if (randomNumber >= 2/3 && randomNumber < 1){
+            computerMove = 'scissors';
+        }
+
+        console.log(computerMove)
+
+        let result = '';
+        if (computerMove === 'rock') {
+            result = 'Tie.';
+        } else if (computerMove === 'paper') {
+            result = 'You lose.';
+        } else if (computerMove === 'scissors') {
+            result = 'You win.';
+        }
+        
+        alert(`You picked rock. Computer picked ${computerMove}. ${result}`);
+    ">Rock</button>
+    <button onclick="">Paper</button>
+    <button>Scissors</button>
+    <script>
+        //----------Algoritmo--
+        //1- El ordenador selecciona un movimiento random al azar
+        //2- se comapran los movimientos con el resultado
+        //3- se muestra el resultado en un popup
+
+        //----------Operadores lógicos
+        // && - and
+        // || - or
+        // !true, !false -not operator, lo convierte en el booleano contrario
+
+        //-----------SCOOPEo ámbito:
+        //La variable que creemos dentro de {} solo existirá ahí, y no se pueden usar fuera
+        // por eso la declaramos fuera, y luego le reasignamos el valor con los if
+
+
+
+    </script>
+</body>
+</html>
