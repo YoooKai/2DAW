@@ -31,6 +31,31 @@
     }
 
 
+    //Los valores que dan falsos en JS son: false, 0, '', NaN, undefined, null
+    //ejemplo apicable
+    cartQuantity = 8
+    if (cartQuantity) {
+        console.log('cart has products');
+    }
+
+
+    //Operador ternario:
+    const result = 0 ? 'truthy' : 'falsy';
+    // falsy
+
+    // EL && sirve para parar o ser gaurdia y si es false no muestra lo siguiente, guard operator
+    const message = 0 && 'hello';
+    const message = 5 && 'hello';
+
+    //default operator
+    const curr = undefined || 'usd'
+    
+    // hace que el si es true, el valor es el que está después del ?, si es falso, el valor es el de después de :
+    // ? es como if,, : es else, pero pudiendo guardar en una variable el resultado
+
+
+
+
     </script>
 </body>
 </html>
