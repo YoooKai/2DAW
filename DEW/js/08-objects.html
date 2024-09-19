@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects</title>
+</head>
+<body>
+    <script>
+        //son como diccionarios de python
+        //se ponen los objetos separador por comas
+        //sirven para organizar, agrupando valores que tienen que ver
+        /*
+        const product = {
+            name: 'socks',
+            price: 10
+        };
+        console.log(product)
+        console.log(product.name)
+        console.log(product.price)
+
+        //cambia el valor al reasignarle otro
+        product.name = 'cotton socks';
+        console.log(product);
+
+        //añadir una nueva propiedad
+        product.newProperty = true;
+        console.log(product);
+
+        //borrar propiedad
+        delete product.newProperty;
+        console.log(product);
+*/
+
+    //nested object (objeto dentro de un objeto)
+    const product2 = {
+        name: 'shirt',
+        ['delivery-time']: '1 day',
+        rating: {
+            stars: 4.5,
+            count: 87
+        },
+        fun: function funcion1() {
+            console.log('function dentro de objeto');
+        }
+    };
+
+    //bracket notation, es lo mismo para acceder al valor
+    //sirve para acceder a valores que no podemos acceder con el otro modo, 
+    //como una variable con un - u otros símbolos
+    connsole.log(product2['name']);
+
+    //podemos guardar cualquier tipo de dato en un objeto
+
+    //para acceder a la propiedad dentro del objeto
+    console.log(product2.rating.count);
+
+    //acceder al valor de la func
+    product2.fun();
+
+
+    //BUILT IN OBJECTS
+    //----------JASON------
+    //--Javascript object notation, es una sintaxis similar al objeto, la diferencia es
+    // que se deben usar comillas dobles como "name" = "shirt",
+    //no soporta funciones
+    //menos features
+    //es más universal para otros lenguajes, y para guardar datos
+    
+
+
+
+    </script>
+</body>
+</html>
