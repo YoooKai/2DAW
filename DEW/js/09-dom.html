@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <button>Hello</button>
+    <button class="js-btn">SecondButton</button>
+    <button class="js-btn2">ThirdButton</button>
+    <script>
+        /*
+        document es un objeto interno de js, body es una propiedad
+        del html, que tambn es un objeto, y accedemos a ese espacio con inner,html
+        */
+       /*
+       //el objeto document reoresenta la página web! 
+        document.body.innerHTML = 'hello';
+        //Cambia el título del documento
+        document.title = 'Good job';
+        */
+        /*
+        //Nos da el tiitulo del documento
+       console.log(document.title);
+       document.title = 'Changed';
+        
+       //nos da el código del body del documento
+       // cuando el body html está en js,, se convierte en un objeto js
+       console.log(document.body);
+
+       //el innerHTML controla el interior del body html
+       console.log(document.body.innerHTML);
+       document.body.innerHTML = '<button>Hey</button>';
+
+       */
+       //TAMBN TIENE MÉTODOS
+       //-----document.queryselector
+       //Nos deja seleccionar el elemento que queramos del documento y ponerlo en js
+       document.querySelector('button');
+        //esto nos da el contenido del elemento, por ejemplo en este caso, 'hello'
+       document.querySelector('button').innerHTML;
+       //modificando el interior del elemento
+       document.querySelector('button').innerHTML = 'Changed';
+
+       //seleccionando al elemento por su etiqueta
+       document.querySelector('.js-btn');
+       document.querySelector('.js-btn').innerHTML = 'Cambiado';
+
+       //guardar elemento en variables
+       const buttonElement = document.querySelector('.js-btn2');
+       console.log(buttonElement);
+
+    //windows representa el naveador
+       window.document
+       window.console.log('window'); //esto ya está buit in
+       window.alert
+
+       
+
+
+
+    </script>
+</body>
+</html>

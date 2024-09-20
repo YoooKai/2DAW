@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom projects</title>
+</head>
+<body>
+    <p>YouTube Subscribe Button</p>
+    <button class="js-btn" onclick="
+    subscribe();
+    
+    ">Subscribe</button>
+
+
+        <p>Amazon Shipping Calculator</p>
+        <!--Con event.key si es el enter, realiza la función de calcular el precio-->
+        <input placeholder="Cost of order" type="text" class="js-cost-input" 
+        onkeydown="
+        handleCostKeydown(event);
+        ">
+        <button onclick="
+            calculateTotal();
+        ">Calculate</button>
+        <p class="js-total-cost"></p>
+    <script>
+
+        function handleCostKeydown(event){
+            if (event.key === 'Enter') {
+                calculateTotal();
+            };
+
+        }
+
+        //clicks, keydows -> events
+        //onlcik,, onkeydown -> event listeners
+        //hay más: onscroll, onmouseenter(hovering over), onmouseleave(stop hovering)...
+
+        function calculateTotal(){
+            const inputElement = document.querySelector('.js-cost-input');
+            //number es como int en python, para convertir en número
+             let cost = Number(inputElement.value);
+             if (cost < 40) {
+                cost = cost + 10;
+             }
+
+             document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
+        }
+
+        function subscribe(){
+            const buttonElement = document.querySelector('.js-btn');
+
+            if (buttonElement.innerHTML === 'Subscribe') {
+                buttonElement.innerHTML = 'Subscribed';
+            } else {
+                //innerText es como innerHTML pero no da error si hay espacios
+                buttonElement.innerText = 'Subscribe';
+            }
+
+        }
+
+        
+
+    </script>
+    
+</body>
+</html>
