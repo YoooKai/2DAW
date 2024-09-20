@@ -30,18 +30,31 @@
         score.wins = 0;
         score.ties = 0;
         score.losses = 0;
+        localStorage.removeItem('score');
     ">Reset Score</button>
 
 
     <script>
 
-        //fuera de la función para que no cree cada vez una puntuación nueva
-        //es un objeto
-        const score = {
-            wins: 0,
-            losses: 0,
-            ties: 0
-        };
+        //sacar la puntuación
+        //pasamos la puntuacion de nuevo a objeto con json.parse
+        //aquí si es cierto usa un lado del || y si es falso el otro
+
+        let score = JSON.parse(localStorage.getItem('score')) || {
+                wins: 0,
+                losses: 0,
+                ties: 0
+            };
+
+        //para que no dé error cuando reseteamos:
+        //es lo mismo que !score que score === null, y lo mismo que el código de arriba
+        // if (score === null) {
+        //     score = {
+        //         wins: 0,
+        //         losses: 0,
+        //         ties: 0
+        //     };
+        // }
 //---------------------------------------
 
         function playGame(playerMove) {
@@ -86,6 +99,9 @@
             } else if (result === 'Tie.') {
                 score.ties += 1;
             }
+
+            //GUARDA EL RESULTADO
+            localStorage.setItem('score',JSON.stringify(score));
        
         
         alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}
