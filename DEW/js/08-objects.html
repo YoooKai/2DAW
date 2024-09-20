@@ -33,7 +33,7 @@
 */
 
     //nested object (objeto dentro de un objeto)
-    const product2 = {
+    const product3 = {
         name: 'shirt',
         ['delivery-time']: '1 day',
         rating: {
@@ -66,7 +66,49 @@
     //no soporta funciones
     //menos features
     //es más universal para otros lenguajes, y para guardar datos
+
+    //método de json, ,convierte el objeto a json
+
+    let product2 = {
+    nombre: 'camiseta',
+    precio: '124'
+}
+    JSON.stringify(product2);
+    console.log(product2);
+    //lo que devuelve es un string
+    console.log(typeof(JSON.stringify(product2)));
+    // string
+
+    //de JSON a javascript
+    const jsonString = JSON.stringify(product2);
+    console.log(JSON.parse(jsonString));
+
+    //LOCAL STORAGE
+    //Sirve para conservar las variables, ya que normalmente son reseteadas
+    //solo soporta strings
+
+    //NULL se usa cuando queremos que algo intencionalmente esté vacío
+
+    //los string también pueden tener propiedades y métodos
+    console.log('hello'.length);
+    console.log('hello'.toUpperCase());
+
+    //Los objetos no se pueden comparar con otros porque lo que compara es la referencia y no el contenido de este, así que va a dar false,
+    //es decir, debe apuntar al mismo lado para que sean true en la memoria del ordenador
+
+    const object4 = {
+        message: 'Good job!'
+    };
+    const message = object4.message
+    const { message } = object4
+
+
+
     
+
+
+    
+
 
 
 
