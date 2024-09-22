@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 7 - Kai</title>
+</head>
+<body>
+    <p>¿Cuántos segundos han pasado desde que naciste? ¿y minutos? ¿y horas? ¿y días? 
+        
+        Implementar una función que dada una fecha cualquiera en formato “yyyy-mm-dd”, devuelva cuánto tiempo ha
+         pasado desde esa fecha. La función aceptará un segundo parámetro para indicar en qué unidad se
+         quiere obtener el resultado: ‘d’ → días, ‘h’ → horas, ‘m’ → minutos y ‘s’ → segundos. Si no es
+         ninguna de estas unidades, se mostrará un error</p>
+    <script>
+
+
+let date1 = new Date("1997-02-10");
+let date2 = new Date(); 
+
+let msTimeDiff = date2.getTime() - date1.getTime();
+
+function calcmsTimeDiff(opcion) {
+    switch (opcion) {
+        case 'segundos':
+            return msTimeDiff / 1000; 
+        case 'minutos':
+            return msTimeDiff / (1000 * 60); 
+        case 'horas':
+            return msTimeDiff / (1000 * 60 * 60); 
+        case 'días':
+            return msTimeDiff / (1000 * 60 * 60 * 24);
+        default:
+            return 'ERROR. Unidad no válida.';
+    }
+}
+
+
+    </script>
+</body>
+</html>

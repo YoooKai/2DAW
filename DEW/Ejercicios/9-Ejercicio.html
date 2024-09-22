@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 9 - Kai</title>
+</head>
+<body>
+    <p>
+        Como hemos visto, javascript, como muchos otros lenguajes, utilizan el “UNIX EPOCH” que
+cuenta el tiempo a partir de la medianoche del 1 de enero de 1970. 
+Sin embargo, hay otros tipos de fecha que tienen otro origen del tiempo. Por ejemplo, la fecha juliana empieza a contabilizar el
+tiempo desde las 12:00 (mediodía) del 1 de enero de 4713 a.C., e indica el número de días (y
+fracciones) que han transcurrido desde ese momento. La fecha juliana se suele utilizar para calcular
+el tiempo que ha transcurrido desde eventos que sucedieron en la antigüedad y es aún ampliamente
+usada para fenómenos astronómicos e históricos lejanos. En la wikipedia
+(https://es.wikipedia.org/wiki/Fecha_juliana) se puede encontrar la relación entre fecha juliana y
+tiempo Unix (contado a partir desde 1/1/1970), siendo esta:
+fecha_juliana = tiempo_unix + 2440587.5
+    </p>
+<p>Implementar una función que dada una fecha en texto (por ejemplo “2018-09-20”), devuelva la
+        fecha juliana equivalente. Para realizar la suma, ten en cuenta que la fecha juliana almacena días,
+        mientras que el tiempo_unix en javascript contiene milisegundos, por lo que hay que transformarlo
+        en días. Por cierto, ¿de dónde crees que ha salido el valor 2440587.5?</p>
+
+    <script>
+
+
+//---------Respuesta-------//
+/*2440587.5 es una constante que representa la fecha juliana del 1 de enero de 1970 (el origen del tiempo Unix)!
+ ".5" indica que el día juliano comenzó 12 horas antes,  a las 12:00 del mediodía anteriorasí que
+ ajusta las 12 horas de diferencia entre el comienzo de un día juliano y un día Unix.*/
+
+//divido unixTime ya que este está en milisegundos, y la fecha juliana en días, así que lo paso todo a días
+
+ function julianDate(date){
+    const julianDateOffset = 2440587.5;
+    const unixTime = new Date(date).getTime();
+    const julianTime = (unixTime/86400000) + julianDateOffset;
+    return julianTime;
+ }
+ const date = '2018-09-20';
+console.log(julianDate(date));
+
+</script>
+
+
+    
+</body>
+</html>

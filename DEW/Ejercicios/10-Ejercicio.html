@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 10 - Kai</title>
+</head>
+<body>
+    <h1>Ejercicio 10</h1>
+    <p>
+         Cuando hablamos de ángulos, normalmente utilizamos los grados sexagesimales (se suelen
+        representar como “deg”, una circunferencia completa son 360º deg). Sin embargo, en trigonometría
+        es más común utilizar los radianes (“rad”, una circunferencia completa son 2π rad). De esta forma,
+        360º equivalen a 2π. Las funciones trigonométricas de javascript, como la mayoría de otros
+        lenguajes, trabajan en radianes, sin embargo en muchas ocasiones nosotros vamos a querer trabajar
+        en grados. Por ello, se pide:
+    </p>
+    <ul>
+            <li>a) Implementar una función llamada <strong>deg2rad(x)</strong> que transforme de grados a radianes, y su
+            inversa <strong>rad2deg(x)</strong>.</li>
+
+            <li>b) Implementar una función <strong>sinDeg(x)</strong> que devuelva el seno del ángulo x y otra función
+            <strong>cosDeg(x)</strong> que devuelva el coseno del ángulo x (en ambos casos x está en grados).</li>
+
+            <li>c) El seno y el coseno están relacionados por la siguiente ecuación: <strong>sin²x + cos²x = 1</strong>.
+            Utilizar esta relación para implementar una función <strong>sinDegAlt(x)</strong> que obtenga el seno
+            de un ángulo x (en grados) usando para ello la función <strong>cosDeg(x)</strong> anteriormente
+            implementada. Implementar también la función inversa al apartado anterior:
+            <strong>cosDegAlt(x)</strong> usando para ello <strong>sinDeg(x)</strong>.</li>
+
+            <h3>(Inspeccionar para ver resultados en consola.)</h3>
+    </ul>
+
+    <script>
+
+        //a
+        deg = 742
+        function deg2rad(deg){
+            return deg * (Math.PI/180);
+        }
+        console.log(deg2rad(deg));
+
+        //b
+        function sinDeg(deg){
+            const rad = deg2rad(deg);
+            return Math.sin(rad);
+        }
+        console.log(sinDeg(deg));
+
+        function cosDeg(deg){
+            const rad = deg2rad(deg);
+            return Math.cos(rad);
+        }
+        console.log(cosDeg(deg));
+
+        //c
+
+        //de coseno a seno
+        function sinDegAlt(deg){
+            const cos = cosDeg(deg);
+            return Math.sqrt(1 - Math.pow(cos, 2));
+        }
+        console.log(sinDegAlt(deg));
+
+        //de seno a coseno
+        function cosDegAlt(deg){
+            const sin = sinDeg(deg);
+            return Math.sqrt(1 - Math.pow(sin, 2));
+        }
+        console.log(cosDegAlt(deg));
+
+    </script>
+    
+</body>
+</html>

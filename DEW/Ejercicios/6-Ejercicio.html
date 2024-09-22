@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6 - Kai</title>
+</head>
+<body>
+    <p>Construye una fecha a partir del texto “02/04/2015”. Muestra la fecha con console.log, ¿qué
+        obtienes? 
+        Prueba ahora con “2015-04-02”.
+        ¿Cómo podrías crear una fecha con el texto “April 02, 2015”?</p>
+
+    <script>
+//a -- Con el formato standar de js de mes, día y fecha:
+var dateString = "02/04/2015"; 
+var dateObject = new Date(dateString);
+console.log(dateObject);
+
+// si queremos que el formato sea tipo españa, día, fecha y mes, se puede hacer partiendo la cadena y haciendo que agarre los elementos en el orden que queramos:
+dateString2 = "02/04/2015";
+let datePart = dateString2.split('/');
+let dateObject2 = new Date(datePart[1] + '/' + datePart[0] + '/' + datePart[2]);
+console.log(dateObject2);   
+
+
+//b-- también acepta este formato la dunción date
+console.log(new Date("2015-04-02"))
+
+
+
+//c-- Date acepta el formato de cadena 
+var dateString3 = "April 02, 2015";
+var dateObject3 = new Date(dateString3);
+console.log(dateObject3);
+
+</script>
+</body>
+</html>

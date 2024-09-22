@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4 - Kai</title>
+</head>
+<body>
+    <p>En el siguiente bucle while tenemos que tener cuidado porque hay operaciones que pueden dar
+        error (no puede haber raíces cuadradas de números negativos, ni divisiones por cero).
+        let result = 1, arg1, arg2, res1, res2;
+        while (result > 0) {
+         arg1 = Math.random() - 0.5;
+         res1 = Math.sqrt(arg1);
+         arg2 = Math.random();
+         res2 = res1/(arg1 + arg2);
+         result = res1 + res2;
+         console.log(result);
+        }
+        
+        
+        
+        a) Cambia el bucle while usando continue y break para que si hay una raíz cuadrada de un
+        número negativo directamente pase a la siguiente iteración. En el caso de haber una división por
+        cero, el bucle debe detenerse inmediatamente.
+        b) Prueba a realizar el apartado anterior sin usar ni continue ni break. ¿Es más sencillo?
+        c) Cambia el bucle while original para que se ejecute sin tener que asignar un valor inicial a la
+        variable result.</p>
+    <script>
+
+//a
+
+let result = 1, arg1, arg2, res1, res2;
+while (result > 0) {
+ arg1 = Math.random() - 0.5;
+
+ if (arg1 < 0){
+    continue;
+} 
+ res1 = Math.sqrt(arg1);
+ 
+ arg2 = Math.random();
+ if (arg1 + arg2 === 0) {
+    break;
+} 
+ res2 = res1/(arg1 + arg2);
+ 
+ result = res1 + res2;
+ console.log(result);
+}
+
+//b Sí es más sencillo ya que solo realizamos las operaciones con la condición de que se cumplan. y queda más comprensible.
+let result = 1, arg1, arg2, res1, res2;
+while (result > 0) {
+arg1 = Math.random() - 0.5;
+
+    if (arg1 >= 0){
+        res1 = Math.sqrt(arg1);
+        arg2 = Math.random();
+
+        if (arg1 + arg2 !== 0){
+            res2 = res1/(arg1 + arg2);
+        
+            result = res1 + res2;
+            console.log(result);
+        }
+    }
+
+}
+//c con este bucle infinito podemos poner la condición de que se detenga cuando el resultado sea menor o igual a 0, que es lo mismo que
+// declarar al principio la condición de que siga el bucle mientras result sea mayor que 0.
+let arg1, arg2, res1, res2;
+let result; 
+
+while (true) { 
+    arg1 = Math.random() - 0.5;
+
+    if (arg1 >= 0) {
+        res1 = Math.sqrt(arg1);
+        arg2 = Math.random();
+
+        if (arg1 + arg2 !== 0) {
+            res2 = res1 / (arg1 + arg2);
+            result = res1 + res2;
+            console.log(result);
+
+            if (result <= 0) {
+                break; 
+            }
+        }
+    }
+}
+
+
+    </script>
+</body>
+</html>
