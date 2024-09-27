@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja 2 Ejercicio 1 - KAI</title>
+</head>
+<body>
+    Realizar una función que indicando un texto y un carácter (ambos obligatorios, comprobar que el segundo parámetro 
+    es realmente un único caracter), nos diga cuántas veces aparece el carácter en el texto.
+    <script>
+        function countCharRep(text, char) {
+            if (char === '' || text === '') {
+                console.error('Se deben proporcionar los dos argumentos.');
+                return;
+            }
+            if (char.length !== 1) {
+                console.error('El argumento de caracter debe ser único.');
+                return;
+            }
+            let reps = 0;
+            for (let i = 0; i < text.length; i++) {
+                if (text[i] === char) {
+                    reps++;
+                }
+            }
+            console.log(`El caracter ${char} se repite ${reps} veces en el texto`);
+        }
+        countCharRep('Hoy es al fin viernes, necesito un descanso.', 'i');
+    </script>
+</body>
+</html>
