@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja 3 Ejercicio 1 - KAI</title>
+</head>
+<body>
+    Crear una función que genere un array aleatorio, usando 3 parámetros: número de elementos por
+defecto 10, valor mínimo del elemento (por defecto 100), valor máximo (por defecto 200).
+<script>
+    function generateArray(numElements = 10, minValue = 100, maxValue = 200){
+        result = Array.from({length: numElements}, () => Math.floor(Math.random() * (maxValue - minValue + 1) + minValue));
+        return result;
+    }
+
+    const newArray = generateArray();
+    console.log(newArray);
+</script>
+    
+</body>
+</html>
