@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Hoja 2 Ejercicio 3 - KAI</title>
+</head>
+<body>
+    Implementar una función que dados dos números, nos escriba el resultado de la suma con console.log usando 4 formas diferentes 
+    (lista de argumentos, concatenación de strings, marcadores de posición y plantillas).
+
+    <script>
+    function sumFun(value1, value2) {
+        //lista de argumentos
+        console.log(value1, '+', value2, '=', value1 + value2);
+        
+        //concatenación de strings
+        console.log(value1 + ' + ' + value2 + ' = ' + (value1 + value2));
+        
+        //marcadores de posición
+        console.log('%d + %d = %d', value1, value2, value1 + value2);
+        
+        //plantillas 
+        const total = value1 + value2;
+        console.log(`${value1} + ${value2} = ${total}`);
+    }
+
+    sumFun(46, 32);
+
+    </script>
+
+    
+</body>
+</html>

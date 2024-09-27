@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja 2 Ejercicio 7 - KAI</title>
+</head>
+<body>
+
+Realizar una función que dado un texto, lo convierta a minúscula y elimine los espacios iniciales y finales, y 
+devuelva la suma de los siguientes puntos:
++1 si el texto empieza por "el" o por "la"
++10 si el texto finaliza en gerundio ("ando", "endo")
++100 si el texto contiene al menos una vez la preposición "con" directamente entre otras dos palabras.
+
+<script>
+    function stringManipulation(text) {
+        const cleanText = text.toLowerCase().trim();
+        let points = 0;
+        if (cleanText.startsWith('el') || cleanText.startsWith('la')) {
+            points += 1;
+        }
+        if (cleanText.endsWith('ando') || cleanText.endsWith('endo')) {
+            points += 10;
+        }
+        const regex = /\bcon\b/;
+        if (regex.test(cleanText)) {
+            points += 100;
+        }
+        console.log(`La cadena "${cleanText}" tiene un total de ${points} puntos.`)
+    }
+    stringManipulation('  La gata bebe agua con su cachorro en el río. ')
+
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja 2 Ejercicio 5 - KAI</title>
+</head>
+<body>
+    Realizar una función en JS que dado un DNI (comprobar que es un número entre 0 y 99999999), 
+    devuelva la letra asociado al mismo. Esta letra se calcula como el módulo (resto) de la división 
+    del número del DNI entre 23, y a partir del resto se escoge una de las siguientes letras según la posición: 
+    TRWAGMYFPDXBNJZSQVHLCKET. Por ejemplo, para el DNI 12345678, al dividir entre 23 se obtiene comor resto 14, por 
+    lo que le corresponde la letra 'Z', siendo el DNI correcto 12345678Z.
+
+    <script>
+        function calcDNILetter(num){
+            if (num < 0 || num > 99999999){
+                console.log('El número debe ser un valor que esté entre 0 y 99999999');
+                return;
+            }
+            const letters = 'TRWAGMYFPDXBNJZSQVHLCKET';
+            const remainder = num % 23;
+            const letter = letters[remainder];
+            console.log(`El DNI completo sería ${num}${letter}.`)
+        }
+        calcDNILetter(12345678);
+
+    </script>
+
+</body>
+</html>

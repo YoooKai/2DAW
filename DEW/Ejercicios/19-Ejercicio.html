@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja 2 Ejercicio 9 - KAI</title>
+</head>
+<body>
+    Implementar una función que dado un texto, nos indique si todas las letras son minúsculas o mayúsculas, o una combinación de ambas.
+    <script>
+        function checkCase(text) {
+            if (text === text.toLowerCase()) {
+                console.log('El texto está en minúscula.');
+            } else if(text === text.toUpperCase()){
+                console.log('El texto está en mayúsculas');
+            } else{
+                console.log('El texto contiene mayúsculas y minúsculas.')
+            }
+        }
+        checkCase('ESTO ES UNA PRUEBA');
+        checkCase('Esto es otra Prueba');
+        checkCase('y esta es otra prueba')
+    </script>
+</body>
+</html>

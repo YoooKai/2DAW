@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja 2 Ejercicio 4 - KAI</title>
+</head>
+<body>
+    Escribir una función que dados dos números, nos devuelva la división del primero entre el segundo si el resultado es un valor númerico, 
+    y, si no, que indique dónde está el problema (resultado es infinito, el númerador o el denominador no eran números, o estaban indefinidos, etc.)
+
+    <script>
+        function validDivision(num1, num2) {
+            // ccomprobar si alguno de los dos números es null o undefined
+            if (num1 == null || num2 == null) {
+                console.log('El numerador o denominador está vacío o no definido.');
+                return;
+            }
+            // comprobar si son numeros
+            if (typeof num1 !== 'number' || typeof num2 !== 'number') {
+                console.log('El numerador o denominador no es un número.');
+                return;
+            }
+            //  denominador es 0
+            if (num2 === 0) {
+                console.log('El denominador no puede ser 0.');
+                return;
+            }
+            //  división
+            const result = num1 / num2;
+            // comprobar si el resultado es infinito
+            if (result === Infinity || result === -Infinity) {
+                console.log('El resultado es infinito.');
+            } else {
+                console.log(result);
+            }
+        }
+
+    </script>
+</body>
+</html>

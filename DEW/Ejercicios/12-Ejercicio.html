@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja 2 Ejercicio 2 - KAI</title>
+</head>
+<body>
+    Escribir una función que acepte al menos un argumento (el primer argumento debe ser obligatorio, 
+    mostrar un mensaje de error si no se indica, luego se pueden indicar tantos argumentos como desee el usuario)
+    y que devuelva la suma y la media de todos los elementos. Comprobar que todos los argumentos sean números e ignorar
+     los que no lo sean, mostrando un aviso (por ejemplo: ¡AVISO! El argumento número 3 "Hola" no es un número, lo ignoramos").
+     <script>
+
+        function sumCalcAvgArgs (...args) {
+            if (args.length === 0) {
+                console.log('ERROR. Se debe indicar al menos un argumento!');
+                return;
+            } 
+
+            let totalArgs = 0;
+            let sumTotal = 0;
+            for (i = 0; i < args.length; i++) {
+                if (typeof arguments[i] === 'number'){
+                    sumTotal += arguments[i];
+                    totalArgs ++;
+                } else{
+                    console.log(`¡AVISO! El argumento número ${i+1} ${arguments[i]} no es un número, lo ignoramos`);
+                }
+            }
+            const avg = sumTotal / totalArgs;
+            console.log(`Hay ${totalArgs} argumentos válidos, que suman un total de ${sumTotal}, y su media es ${avg}`)
+        }
+            
+            sumCalcAvgArgs(2, 3, 4, 6, 'hey');
+        
+
+     </script>
+
+
+</body>
+</html>

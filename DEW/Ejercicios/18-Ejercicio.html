@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja 2 Ejercicio 8 - KAI</title>
+</head>
+<body>
+    Escribir una función que busque la cadena "arriba" en un texto. La función deberá informar si encuentra o no esta cadena en el texto y,
+     si la encuentra, nos deberá mostrar el texto reemplazando "arriba" por "abajo".
+
+</body>
+<script>
+    function findAndReplace(text) {
+        if (/arriba/i.test(text)) {
+            const newText = text.replace(/arriba/i, 'abajo');
+            console.log(newText);
+        } else{
+            console.log('No contiene la palabra "arriba".');
+        }
+    }
+    findAndReplace('Allí arriba hay una cucaracha enorme.');
+
+
+</script>
+</html>
