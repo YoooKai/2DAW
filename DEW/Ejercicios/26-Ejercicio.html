@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja 3 Ejercicio 6 - KAI</title>
+</head>
+<body>
+    Crear una función que devuelva el valor máximo y mínimo del array, e indique el índice de estos
+valores (si el valor se repite, informar sólo sobre la primera vez que aparezca). Probar con un array
+aleatorio de 20 números entre -100 y 100.
+
+<script>
+    function generateArray(numElements = 10, minValue = 100, maxValue = 200){
+        let result = Array.from({length: numElements}, () => Math.floor(Math.random() * (maxValue - minValue + 1) + minValue));
+        return result;
+    }
+
+    const newArray = generateArray(20, -100, 100);
+    console.log(newArray);
+
+
+    function maxMinIndex(arr){
+        const maxValue = Math.max(...arr);
+        const maxIndex = arr.indexOf(maxValue);
+        const minValue = Math.min(...arr);
+        const minIndex = arr.indexOf(minValue);
+        console.log(`El valor máximo es ${maxValue}, cuyo index es ${maxIndex}. El valor mínimo es ${minValue}, cuyo index es ${minIndex}`);
+    }
+
+    maxMinIndex(newArray);
+
+</script>
+</body>
+</html>

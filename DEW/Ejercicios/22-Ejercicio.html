@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja 3 Ejercicio 2 - KAI</title>
+</head>
+<body>
+    Usando la función del ejercicio 1, generar un array aleatorio de 20 elementos entre 20 y 100 y
+luego ordenarlo.
+<script>
+    function generateArray(numElements = 10, minValue = 100, maxValue = 200){
+        let result = Array.from({ length: numElements }, () => Math.floor(Math.random() * (maxValue - minValue + 1) + minValue));
+        let sortedArray = result.sort(); 
+        return sortedArray;
+    }
+
+
+    let newRandomArray = generateArray(20, 20, 100);
+    console.log(newRandomArray);
+
+</script>
+    
+</body>
+</html>

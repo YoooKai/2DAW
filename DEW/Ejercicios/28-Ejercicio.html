@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hoja 3 Ejercicio 8 - KAI</title>
+</head>
+<body>
+    Modificar el ejercicio anterior para que si el número ya existía, nos indique cuántas veces había
+    aparecido con anterioridad.
+    <script>
+            function generateArray(numElements = 10, minValue = 100, maxValue = 200){
+        let result = Array.from({length: numElements}, () => Math.floor(Math.random() * (maxValue - minValue + 1) + minValue));
+        return result;
+    }
+
+    const newArray = generateArray(50, 10, 20);
+    console.log(newArray);
+
+    function findReps(arr){
+        let numOcurrences = {};
+        
+        for (let i = 0; i < arr.length; i++){
+            let currentNum = arr[i];
+
+            if(numOcurrences[currentNum]){
+                numOcurrences[currentNum]++;
+                console.log(`El elemento ${currentNum} ha aparecido ${numOcurrences[currentNum]} veces.`);
+                
+            } else {
+                numOcurrences[currentNum] = 1;
+                console.log(`El elemento ${currentNum} aparece por primera vez.`);
+            }
+        }
+    }
+    findReps(newArray);
+    </script>
+</body>
+</html>
