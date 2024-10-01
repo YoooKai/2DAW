@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        /*
+        //array, son como listas en python
+        const myArray = [10, 20, 30];
+        //seleccionar el valor por iindex
+        myArray[1];
+        myArray[0] = 94;
+        console.log(myArray);
+
+        //dentro pueden contener cualquier tipo de datos
+        [1, 'hey', true, { name: 'pepe'}, [1, 2]]
+        console.log(myArray.length);
+        //añadir valor al final:
+        myArray.push(100);
+        console.log(myArray);
+        //[94, 20, 30, 100]
+
+        //eliminar un valor, primer num por donde empieza y segundo cuántos valores
+        myArray.splice(0,1);
+        console.log(myArray);
+        */
+        /*
+        let i = 1;
+        while (i <= 5) {
+            console.log(i);
+            // i = i + 1 o i+= 1
+            i++;
+        }
+
+        //loop variable, condition, increment step
+        //más corto y organizado
+        for (let i = 1; i<= 5; i++ ) {
+            console.log(i);
+        }
+
+        //obtener un num mayor o igual a 0.5
+        let randomNumber = 0;
+        while (randomNumber < 0.5) {
+            randomNumber = Math.random();
+        }
+        console.log(randomNumber);
+
+        const todoList = [
+            'make dinner',
+            'wash dishes',
+            'watch anime'
+        ];
+
+        //bucle de un array
+        for (let index = 0; index <= todoList.length-1; index ++){
+            const value = todoList[index];
+            console.log(value);
+        }
+        */
+
+        const values = [1, 2, 3];
+        const firtsValue = values[0];
+        //Desempaquetar
+        const [firstValue, secondValue ] = [1, 2, 3];
+        //tomará el primer y el segundo valor, y los guardará en esa variable
+
+        //------------BREAK Y CONTINUE--------------
+        //saltar una iteración del bucle con continue
+        //cuando el bucle alcance 8, parará con break
+        for (let i = 1; i <= 10; i++){
+            if(i % 3 === 0){
+                continue;
+            }
+            console.log(i);
+            if (i === 8){
+                break;
+            }
+        }
+
+        let i = 1;
+        while (i <= 10) {
+            //en un bucle while hay que hacer manualmente el ++i para que no haga bucle infnito por el continue
+            if (i % 3 === 0){
+                i++;
+                continue;
+            }
+            console.log(i);
+            i++;
+        }
+
+        //Reutilizar código
+    function doubleArray(nums){    
+        const numsDoubled = [];
+
+        for(let i = 0; i < nums.length; i++){
+            const num = nums[i];
+            if (num === 0){
+                //otra manera de acabar el bucle, como break
+                return numsDoubled;
+            }
+            numsDoubled.push(num * 2);
+
+        }
+        return numsDoubled;
+    }
+    //se para cuando ve el 0
+    console.log(doubleArray([1, 1, 3, 0, 5]));
+    console.log(doubleArray([3, 5, 9]));
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Functions</title>
+</head>
+<body>
+    <script>
+        //cuando hacemos una función sn guardar en una variable, podemos llamarla
+        //sin importar el orden en el que lo hagamos, o sea, puede ser antes (esto se llama hoisting)
+        greetings()
+        function greetings(){
+            console.log('hello');
+        }
+        greetings();
+
+        const num = 2;
+        //podemos guardar una funcion en una variable
+        //porque es un tipo de valor también
+        const funcion1 = function greetings() {
+            console.log('hello2');
+        };
+        console.log(funcion1);
+        console.log(typeof funcion1);
+        //también se puede llamar directamente a la función
+        funcion1();
+
+        //pero resulta que como podemos llamarla por la variable, entonces el nombre
+        //de la función no es necesaria, y podemos borrarlo:
+        //Ahora es una función anónima, porque no tiene nombre
+        const funcion2 = function() {
+            console.log('hello3');
+        };
+
+        //tambn podemos poner una función en un objeto
+        const object1 = {
+            num: 2,
+            fun: function greetings(){
+                console.log('hello4');
+            }
+        }
+        
+
+
+    </script>
+</body>
+</html>
