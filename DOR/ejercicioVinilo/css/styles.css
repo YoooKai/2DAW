@@ -1,0 +1,37 @@
+body {
+    background-image: url('../assets/img/clouds2.gif');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cover {
+    width: 200px;
+    height: 200px;
+    background-color: gray; 
+}
+
+.cv1 {
+    background-image: url(../assets/img/song1.jpg);
+    background-size: cover;
+}
+
+.cv2 {
+    background-image: url(../assets/img/song2.jpg);
+    background-size: cover;
+}
+
+.cv3 {
+    background-image: url(../assets/img/song3.jpg);
+    background-size: cover;
+}
