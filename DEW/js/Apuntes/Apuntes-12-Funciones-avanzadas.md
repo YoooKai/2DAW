@@ -1,4 +1,5 @@
-# Apuntes de JavaScript - Funciones Avanzadas
+# Apuntes de JavaScript - Funciones y Callbacks
+
 ## Hoisting en funciones
 
 -  **hoisting**: las funciones declaradas con function se "elevan", por lo que puedes llamarlas antes de que estén definidas en el código.
@@ -136,3 +137,124 @@ Puedes también obtener el índice de cada elemento pasándolo como segundo par�
 
 - No puedes usar continue o break en un forEach. Para saltar una iteración, usas return.
 - Si necesitas romper un bucle, es mejor usar un bucle for tradicional.
+
+
+## Función Flecha
+
+### Versión normal vs. Arrow function
+```javascript
+// Versión normal
+const regularFunction = function(param, param2) {
+    console.log('hello');
+    return 5;
+};
+
+// Arrow function
+const arrowFunction = (param, param2) => {
+    console.log('hello');
+    return 5;
+};
+arrowFunction();
+```
+Ambas versiones usan parámetros y return de manera similar.
+Sin embargo, las arrow functions tienen ciertos atajos que las funciones regulares no.
+
+## Arrow function con un solo parámetro
+Si una función flecha tiene un solo parámetro, se pueden omitir los paréntesis.
+
+```javascript
+const oneParam = param => {
+    console.log(param + 1);
+};
+oneParam(2);
+```
+
+## Arrow function en una sola línea
+Si la función flecha tiene una sola línea de código, puedes poner la lógica al lado de la flecha, eliminando las llaves y el return.
+
+```javascript
+const oneLine = () => 2 + 3;
+```
+## Práctica con funciones flecha
+
+Es buena práctica usar una función flecha cuando se pasa como argumento a otra función, ya que mejora la legibilidad.
+
+```javascript
+[
+    'make dinner',
+    'wash dishes',
+    'watch anime'
+].forEach((value, index) => {
+    if(value === 'wash dishes'){
+        return;
+    }
+    console.log(value);
+    console.log(index);
+});
+```
+
+## Shorthand method en objetos
+Podemos definir métodos en objetos de forma abreviada.
+
+```javascript
+const object2 = {
+    // Definición tradicional de un método
+    method: () => {
+
+    },
+    // Definición abreviada (shorthand method)
+    method (){
+
+    }
+};
+```
+
+## Event Listener
+El Event Listener permite ejecutar código cuando interactuamos con un elemento, como al hacer clic en un botón.
+
+**Añadir un listener a un botón**
+
+```javascript
+const buttonElement = document.querySelector('.js-btn');
+
+const eventListener = () => {
+    console.log('click');
+};
+
+// Añadimos un evento de click
+buttonElement.addEventListener('click', eventListener);
+```
+``addEventListener``permite múltiples listeners para un mismo evento.
+
+## Remover un listener
+Se puede eliminar un listener con removeEventListener.
+
+```javascript
+buttonElement.removeEventListener('click', eventListener);
+```
+
+## Métodos de Arrays
+``Filter``
+
+El método filter crea un nuevo array. Si la función que se le pasa devuelve true, el elemento es añadido al nuevo array. Si devuelve false, no se incluye.
+
+```javascript
+Copiar código
+console.log([1, -3, 5].filter((value) => {
+    return value >= 0;
+}));
+// Resultado: [1, 5]
+```
+
+`Map`
+
+El método map también crea un nuevo array. Lo que devuelva la función se añade al nuevo array.
+
+```javascript
+Copiar código
+console.log([1, 3, 4].map((value) => value * 2));
+// Resultado: [2, 6, 8]
+```
+
+## Closure
+Closure significa que si una función tiene acceso a un valor, siempre tendrá acceso a ese valor en su entorno actual.
