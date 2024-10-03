@@ -6,7 +6,11 @@
     <title>Advanced Functions</title>
 </head>
 <body>
+
+    <button class="js-btn">Click</button>
     <script>
+
+        /*
         //cuando hacemos una función sn guardar en una variable, podemos llamarla
         //sin importar el orden en el que lo hagamos, o sea, puede ser antes (esto se llama hoisting)
         greetings()
@@ -39,8 +43,190 @@
             fun: function greetings(){
                 console.log('hello4');
             }
+        };
+
+        //para acceder a este valor:
+        object1.fun();
+
+        //pasarle un valor a la funmción
+        function display(param){
+            console.log(param);
         }
+        display(2);
+
+        function run (param){
+            param();
+        }
+        //tambn se le puede pasar una función a la función como argumento:
+        //esto se llama callback
+        run(function() {
+            console.log('hello5');
+                
+        });
         
+        
+
+
+        //existe una función, al que se le pasa la función y un numero en milisegundos que es cuando se ejecuta la función que pasamos
+
+        //código asíncrono
+        //-- No espera a que acabe la linea antes de saltar a la siguiente, muestra priemro la segunda ya que en la priemra dispara un timer
+        //códiggo síncrono
+        //-- espera a que termine la línea antes de saltar a la siguiente
+        setTimeout(function() {
+            console.log('timeout');
+        }), 3000;
+
+        console.log('next line');
+
+        //se ejecuta la función en el tiempo indicado, pero este se ejecutará de nuevo cada vex que pase ese tiempo. En este caso, cada 3segundos.
+        setInterval(function(){
+            console.log('Interval');
+        }, 3000)
+
+        console.log('next line 2');
+        
+
+        //otra manera de recorrer un bucle
+        //---------FOR EACH---------------------
+        //la mejor manera de recorrer un array
+        //a value es asignado cada elemento en cada iteración
+        //podemos también pasarle un index
+        [
+            'make dinner',
+            'wash dishes',
+            'watch anime'
+        ].forEach(function(value){
+            console.log(value);
+        });
+
+        [
+            'make dinner',
+            'wash dishes',
+            'watch anime'
+        ].forEach(function(value, index){
+            if(value === 'wash dishes'){
+                return;
+            }
+            console.log(value);
+            console.log(index);
+        });
+
+        //no se puede usar continue en un forEach, pero se usa return
+        //tampoco hay un break, por lo que mejor usar un for loop normal si se debe usar un break
+
+        
+
+
+
+        //---------FUNCIÓN FLECHA
+
+        //versión normal
+        const regularFunction = function(param, param2){
+            console.log('hello');
+            return 5;
+        };
+
+        const arrowFunction = (param, param2) => {
+            console.log('hello');
+            return 5;
+        };
+        arrowFunction();
+
+        //son iguales en los parámetros, y usan igual el return
+
+        //pero las arrow functiion tienen ciertos shorcuts que las normales no
+        //por ejemplo, si la función tiene solo 1 parámetro, podemos omitir los ()
+
+        const oneParam = param => {
+            console.log(param + 1);
+        };
+        oneParam(2);
+
+        //cuando tene solo una línea, se pude también poner el contenido al lado de la flecha, y también se pueden quitar las llaves y el return
+        //const oneLine = () => {
+        //    return 2 + 3;
+        //}
+        const oneLine = () => 2 + 3 ;
+
+        //Practicando con funcones flecha
+        //es buena práctica usar una función flecha cuando pasamos una función a otra funcón, porque se lee mejor
+
+        [
+            'make dinner',
+            'wash dishes',
+            'watch anime'
+        ].forEach((value, index) => {
+            if(value === 'wash dishes'){
+                return;
+            }
+            console.log(value);
+            console.log(index);
+        });
+
+        //shorthand method
+
+        const object2 = {
+            //aunque podemos guardar una función en un objeto así, hay un shortcut
+            method: () => {
+
+            },
+            //este es el shortcut recomendable
+            method (){
+
+            }
+        }
+
+        
+
+        //EVENT LISTENER
+        //Hemos creado un botón en el HTML. Ahora lo guardamos en js en una constante.
+
+        const buttonElement = document.querySelector('.js-btn');
+
+        //es un método que deja ejecutar un código cuando interactuamos con el elemento
+        //cuando se hace click, lo ejecuta, hace lo msmo que onclick
+        //pero tiene ventajas, ya que permite poner múltiples para un evento
+
+        const eventListener = () => {
+            console.log('click');
+        };
+        buttonElement.addEventListener('click', eventListener)
+
+        buttonElement.addEventListener('click', eventListener);
+        // y podemos quitarlo con removeListener
+        //este tiene dos parámetros, el evento, y la función
+        //buttonElement.removeEventListener('click', eventListener);
+    */
+
+    //FILTER
+    //funciona como forEach, pero crea un nuevo array.
+    // Si la función interior devuelve true, lo añade al nuevo
+    //array, si devuelve falso, no lo añade
+    console.log([1, -3, 5].filter((value, index) => {
+        /*
+        if (value >= 0){
+            return true;
+        }else{
+            return false;
+        };
+        */
+       //abreviación de lo de arriiba
+       return value >= 0;
+    }));
+
+    //MAP
+    //crea un nuevo array, y lo que sea que devuelva, lo añade al array.
+    console.log([1, 3, 4].map((value, index) => {
+        return value * 2;
+    }))
+    //devuelve [2, 6, 8]
+
+    //Se puede abrevair este códico como:
+    console.log([1, 3, 4].map((value) => value * 2));
+        
+    //closure
+    //Significa que si una función triene acceso a un valor, siempre tendrá acceso a ese valor
 
 
     </script>
