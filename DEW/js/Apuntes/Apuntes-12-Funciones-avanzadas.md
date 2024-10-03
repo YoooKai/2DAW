@@ -1,5 +1,4 @@
-# Apuntes de JavaScript - Funciones y Callbacks
-
+# Apuntes de JavaScript - Funciones Avanzadas
 ## Hoisting en funciones
 
 -  **hoisting**: las funciones declaradas con function se "elevan", por lo que puedes llamarlas antes de que estén definidas en el código.
