@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>3.- La Batalla de los Cinco Ejércitos (POO)</h1>
+    <p>Crea una clase Ejercito con atributos como nombre, numeroSoldados, y fuerza.
+        Instancia cinco ejércitos y simula una batalla comparando la fuerza de cada 
+        ejército</p>
+
+    <script>
+        class Ejercito{
+            constructor(nombre, numeroSoldados, fuerza) {
+                this.nombre = nombre;
+                this.numeroSoldados = numeroSoldados;
+                this.fuerza = fuerza;
+            }
+
+            fuerzaTotal() {
+                return this.fuerza * this.numeroSoldados;
+            }
+        }
+        const ejercito1 = new Ejercito('elfos', 742, 65);
+        const ejercito2 = new Ejercito('enanos',345, 42 );
+        const ejercito3 = new Ejercito('trasgos',865, 56 );
+        const ejercito4 = new Ejercito('humanos',946, 25 );
+        const ejercito5 = new Ejercito('huargos',642, 74 );
+
+        const ejercitos = [ejercito1, ejercito2, ejercito3, ejercito4, ejercito5];
+
+        function simularBatalla(ejercitos){
+            let ejercitoGanador = ejercitos[0];
+
+            ejercitos.forEach(ejercito => {
+                const fuerzaTotal = ejercito.fuerza * ejercito.numeroSoldados;
+                if(ejercito.fuerzaTotal() > ejercitoGanador.fuerzaTotal()) {
+                    ejercitoGanador = ejercito;
+                }
+            });
+            return ejercitoGanador;
+        }
+
+        const ganador = simularBatalla(ejercitos);
+        console.log(ganador);
+
+    </script>
+
+
+</body>
+</html>

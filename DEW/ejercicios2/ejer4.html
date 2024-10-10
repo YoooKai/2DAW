@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interactivo de la Tierra Media</title>
+    <style>
+        .mapa-container {
+            position: relative;
+            width: 800px; 
+            margin: 0 auto;
+        }
+        .mapa-container img {
+            width: 100%;
+        }
+        .region {
+            position: absolute;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        .region:hover {
+            border-color: transparent;
+        }
+        .mordor {
+            top: 62%;
+            left: 72%;
+            width: 20%;
+            height: 20%;
+        }
+        .rohan {
+            top: 53%;
+            left: 52%;
+            width: 10%;
+            height: 10%;
+        }
+        .gondor {
+            top: 65%;
+            left: 44%;
+            width: 20%;
+            height: 15%;
+        }
+    </style>
+</head>
+<body>
+    <h1>4.- El Mapa de la Tierra Media (DOM)</h1>
+    <p>Crea un mapa interactivo de la Tierra Media donde al hacer clic en un reino (Mordor, Rohan,
+        Gondor), aparezca una alerta mostrando el nombre del reino.</p>
+
+    <div class="mapa-container">
+        <img src="img/mapa.jpeg" alt="Mapa de la Tierra Media">
+
+        <div class="region mordor" data-reino="Mordor"></div>
+        <div class="region rohan" data-reino="Rohan"></div>
+        <div class="region gondor" data-reino="Gondor"></div>
+    </div>
+
+    <script>
+        const regiones = document.querySelectorAll('.region');
+
+        regiones.forEach(region => {
+            region.addEventListener('click', () => {
+                const nombreReino = region.getAttribute('data-reino');
+                alert(`Has hecho clic en ${nombreReino}`);
+            });
+        });
+    </script>
+</body>
+</html>

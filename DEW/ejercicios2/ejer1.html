@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personajes de LOTR</title>
+    <style>
+        body {
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .character-list{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+       
+        .character {
+            margin: 10px 0;
+            background-color:#b87316;
+            padding: 50px;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            color: #f4f4f4;
+            font-size: 24px;
+            text-align: center;
+            align-items: center;
+        
+        }
+        #btn{
+            padding: 20px;
+            background-color: #eedda0;
+        }
+    </style>
+</head>
+<body>
+    <div class="character-list">
+        <div class="character">Gandalf el Gris<º/div>
+        <div class="character">Aragorn</div>
+        <div class="character">Legolas</div>
+        <div class="character" id="frodo">Frodo Baggins</div>
+        <div class="character">Gimli</div>
+        <div class="character">Samwise Gamgee</div>
+    </div>
+    <button id="btn">Encontrar el Anillo</button>
+
+    <script>
+        const button = document.querySelector("#btn");
+        button.addEventListener("click", () =>{
+        document.querySelector('#frodo').style.backgroundColor = '#e3b737';
+        });
+    </script>
+</body>
+</html>

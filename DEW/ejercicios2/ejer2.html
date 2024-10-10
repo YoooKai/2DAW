@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .nazgul-imags{
+            display: flex;
+            align-items: center;
+        }
+        .nazgul{
+            height: 300px;
+            width: 300px;
+        }
+        .nazgul img{
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>2- Los 9 Nazgûl (DOM)</h1>
+<p>Crea una lista de 9 elementos que representen a los Nazgûl. Al pasar el ratón sobre cada elemento,
+cambia el texto a "Nazgûl" y cambia su color de fondo a negro.</p>
+
+<div class="nazgul-imags">
+    <div class="nazgul"><img src="img/nazgul.png" alt=""></div>
+    <div class="nazgul"><img src="img/nazgul.png" alt=""></div>
+    <div class="nazgul"><img src="img/nazgul.png" alt=""></div>
+    <div class="nazgul"><img src="img/nazgul.png" alt=""></div>
+    <div class="nazgul"><img src="img/nazgul.png" alt=""></div>
+    <div class="nazgul"><img src="img/nazgul.png" alt=""></div>
+    <div class="nazgul"><img src="img/nazgul.png" alt=""></div>
+    <div class="nazgul"><img src="img/nazgul.png" alt=""></div>
+    <div class="nazgul"><img src="img/nazgul.png" alt=""></div>
+</div>
+
+<script>
+    const nazguls = document.querySelectorAll(".nazgul");
+    nazguls.forEach(nazgul => {
+        nazgul.addEventListener("mouseover", () => {
+            nazgul.style.backgroundColor = 'black';
+            nazgul.style.color = 'white';
+            nazgul.innerHTML = 'NAZGUL';
+        })
+    })
+
+</script>
+</body>
+</html>
