@@ -114,7 +114,6 @@ Registra el modelo Task en el panel administrativo para que puedas gestionarlo (
 Admin.py se verá algo así:
 
 ```python
-
 from django.contrib import admin
 
 # Register your models here.
@@ -122,10 +121,10 @@ from .models import Task
 
 
 class TaskAdmin(admin.ModelAdmin):
-    prepopulated_fields = {'slug': ['task']}
+    prepopulated_fields = {'slug': ['title']}
     
 
-admin.site.register(ToDoItem, TaskAdmin)
+admin.site.register(Task, TaskAdmin)
 
 ```
 ## 4. Incluir la aplicación en la lista de aplicaciones instaladas.
