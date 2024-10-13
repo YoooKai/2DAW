@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .shield{
+            position: relative;
+        }
+        .shield-img{
+            position: absolute;
+            left: 0;
+            top: 50px;
+            transition: left 0.15s linear;
+            width: 200px;
+        }
+    </style>
+    <h1>9- El escudo del Capitán América (DOM)</h1>
+    <p>Crea una página con una imagen del escudo del Capitán América. Al hacer clic sobre el escudo, éste
+        debe moverse hacia la derecha en intervalos usando JavaScript.</p>
+    <div class="shield"><img class="shield-img" src="img/shield.jpg" alt=""></div>
+
+    <script>
+        const shield = document.querySelector('.shield-img');
+
+        let positionX = 0;
+
+        shield.addEventListener('click', () =>{
+            if (positionX >= 500) {
+                positionX = 0; 
+                shield.style.left = `${positionX}px`; 
+                clearInterval(intervalMovement); 
+                return; 
+            }
+            const intervalMovement = setInterval(() => {
+                positionX += 5;
+                shield.style.left = `${positionX}px`;
+                if (positionX >= 500) {
+                    clearInterval(intervalMovement);
+                }
+            }, 10);
+        })
+
+    </script>
+</body>
+</html>

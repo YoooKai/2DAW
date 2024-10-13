@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .sable img{
+            height: 200px;
+            position: absolute;
+            left: 20%;
+            top: 60%;
+        }
+        .light{
+            position: absolute;
+            left: 21.83%;
+            top: 16%;
+            width: 30px;
+            height: 380px;
+            background-image: linear-gradient(to right, grey, rgb(255, 255, 255));
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>6.- El sable láser (DOM)</h1>
+    <p>Crea una imagen de un sable láser apagado. Al hacer clic sobre el sable, éste se enciende mostrando
+        una imagen diferente.</p>
+    <div class="light"></div>
+    <div class="sable"><img src="img/sable.png" alt=""></div>
+
+    <script>
+        const sableLight = document.querySelector('.light');
+        sableLight.addEventListener('click', () => {
+            if (sableLight.style.backgroundImage === 'linear-gradient(to right, red, rgb(255, 255, 255))') {
+                sableLight.style.backgroundImage = 'linear-gradient(to right, grey, rgb(255, 255, 255))';
+            } else {
+                sableLight.style.backgroundImage = 'linear-gradient(to right, red, rgb(255, 255, 255))';
+            }
+        });
+    </script>
+
+</body>
+</html>

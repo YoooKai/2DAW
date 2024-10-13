@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>7.- Combate Jedi (POO)</h1>
+    <p>Crea dos clases: Jedi y Sith. Cada clase debe tener atributos como nombre, nivelFuerza, y
+        arma. Simula un combate entre un Jedi y un Sith, donde gana el que tenga mayor nivel de fuerza.
+        </p>
+    
+    <script>
+        class Jedi{
+            constructor(nombre, nivelFuerza, arma){
+                this.nombre = nombre;
+                this.nivelFuerza = nivelFuerza;
+                this.arma = arma;
+            }
+        }
+        class Sith{
+            constructor(nombre, nivelFuerza, arma){
+                this.nombre = nombre;
+                this.nivelFuerza = nivelFuerza;
+                this.arma = arma;
+            }
+        }
+        const Jedi1 = new Jedi('Luke Skywalker', 67, 'sable verde' );
+        const Sith1 = new Sith('Darth Vader', 68, 'sable rojo');
+
+        function simularBatalla(jedi, sith){
+            if (jedi.nivelFuerza > sith.nivelFuerza){
+                return jedi;
+            } else {
+                return sith;
+            };
+        }
+        const ganador = simularBatalla(Jedi1, Sith1);
+        console.log(`El ganador es ${ganador.nombre} con un nivel de fuerza ${ganador.nivelFuerza} y su arma es un ${ganador.arma}`);
+
+    </script>
+</body>
+</html>

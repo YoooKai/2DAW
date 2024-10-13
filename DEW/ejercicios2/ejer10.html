@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body{
+            background-image: url('img/nobatsignal.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            color: white;
+        }
+        
+    </style>
+    <h1>10.- La Batiseñal (DOM)</h1>
+    <p> Crea un botón que al hacer clic cambie la imagen del fondo por una con la Batiseñal.</p>
+    <button id="callBatmanBtn">Llamar a Batman</button>
+    
+<script>
+    const btn = document.querySelector('#callBatmanBtn')
+    btn.addEventListener('click', () => {
+        document.body.style.backgroundImage = "url('img/batsignal.jpg')";
+    })
+</script>
+</body>
+</html>

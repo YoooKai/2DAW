@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>8.- Los poderes de los superhéroes (POO)</h1>
+<p>Crea una clase Superheroe con atributos como nombre, poder, y nivel. Crea una función
+    que recorra una lista de superhéroes y devuelva el nombre del más poderoso.
+    </p>
+<script>
+    class Superheroe{
+        constructor(nombre, poder, nivel){
+            this.nombre = nombre;
+            this.poder = poder;
+            this.nivel = nivel;
+        }
+    }
+    const superheroe1 = new Superheroe('Superman', 'Fuerza Sobrehumana', 95);
+    const superheroe2 = new Superheroe('Batman', 'Ingenio y Tecnología', 85);
+    const superheroe3 = new Superheroe('Wonder Woman', 'Fuerza Sobrehumana', 90);
+    const superheroe4 = new Superheroe('Flash', 'Velocidad Superhumana', 88);
+    const superheroe5 = new Superheroe('Aquaman', 'Control sobre el agua', 80);
+
+
+    const superheroes = [superheroe1, superheroe2, superheroe3, superheroe4, superheroe5];
+    function encontrarMasPoderoso(superheroes){
+        masPoderoso = superheroes[0];
+        superheroes.forEach(superheroe => {
+            if(superheroe.nivel > masPoderoso.nivel){
+                masPoderoso = superheroe;
+            }
+        });
+        return masPoderoso;
+    }
+
+    const superheroePoderoso = encontrarMasPoderoso(superheroes);
+    console.log(`El superhéroe más poderoso es ${superheroePoderoso.nombre}, con un nivel ${superheroePoderoso.nivel} y su poder es ${superheroePoderoso.poder}`);
+</script>
+</body>
+</html>
