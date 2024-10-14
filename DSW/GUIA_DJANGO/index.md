@@ -155,6 +155,35 @@ En el mismo fichero de settings.py, para configurar la hora de Canarias, vamos a
 
 `TIME_ZONE = 'Atlantic/Canary'`
 
+
 ## 6. Probar y crear una tarea en la interfaz adminisrativa.
-Recordar que para entrar, escribimos:
+Recordar que para entrar al navegador, escribimos:
 `./manage.py runserver`
+
+Y de nuevo, añadimos /admin a la dirección.
+Saldrá Tasks, y podremos crear una tarea.
+
+## Interactuar con la base de datos:
+
+Una vez teniendo algún registro
+
+Acceder a la consola interactiva de Django para interactuar con tus modelos y hacer consultas a la base de datos.
+
+`./manage.py shell`
+
+Este comando importa el modelo Task desde el archivo models.py de la aplicación todo. Aquí estás asumiendo que tu aplicación todo tiene un modelo llamado Task que representa una tarea 
+
+`from todo.models import Task`
+
+Consulta a la base de datos para obtener todos los objetos de la tabla que corresponde al modelo Task.
+
+`Task.objects.all()`
+
+Se pueden guardar consultas en variables y acceder a las propiedades del objeto.
+
+`first_task = Task.objects.first()`
+
+`first_task.title`
+
+También podemos crear una nueva tarea desde la terminal:
+
