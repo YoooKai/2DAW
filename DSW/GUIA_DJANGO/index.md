@@ -7,12 +7,12 @@ Esta guía la hice para no olvidarme de cómo configurar un entorno de desarroll
 Primero, crea un directorio donde se alojará tu proyecto y ubícate dentro de este:
 
 ```bash
-mkdir proyecto && cd proyecto
+mkdir supertodo && cd supertodo
 ```
 ## 1. Crear entorno virtual
 Es buena práctica trabajar con un entorno virtual para aislar las dependencias del proyecto. 
 ```pyhton
-python -m venv .venv --prompt questlog
+python -m venv .venv --prompt supertodo
 ```
 Este comando creará un entorno virtual en la carpeta .venv y establecerá questlog como su nombre para que sea más fácil identificarlo en tu terminal.
 ## 2. Actvar el entorno virtual
@@ -31,7 +31,7 @@ pip install django
 Usa el siguiente comando para generar la estructura inicial de tu proyecto Django:
 
 ```pyhton
-django-admin startproject questlog .
+django-admin startproject main .
 ```
 
 El último . asegura que la estructura del proyecto se cree en el directorio actual. Deberías ver un archivo manage.py y una carpeta llamada questlog creada en tu directorio.
