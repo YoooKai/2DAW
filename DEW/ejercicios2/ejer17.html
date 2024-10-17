@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misión X-Men</title>
+    <style>
+        /* Estilo para marcar una misión como completada */
+        .completada {
+            text-decoration: line-through;
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+    <h1>17.- Misión X-Men (DOM)</h1>
+    <p>Crea una lista de misiones para los X-Men. Al hacer clic en una misión, debe marcarse como
+        completada, cambiando su estilo (por ejemplo, tachando el texto)</p>
+    
+    <ul id="misiones">
+        <li>Misión 1</li>
+        <li>Misión 2</li>
+        <li>Misión 3</li>
+        <li>Misión 4</li>
+        <li>Misión 5</li>
+    </ul>
+
+    <script>
+        const misiones = document.querySelectorAll('#misiones li');
+        misiones.forEach(mision => {
+            mision.addEventListener('click', () => {
+                mision.classList.toggle('completada');
+            });
+        });
+    </script>
+</body>
+</html>

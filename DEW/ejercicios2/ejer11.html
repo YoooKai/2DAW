@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El vuelo de Superman</title>
+    <style>
+        .superman-img {
+            position: absolute; 
+            bottom: 0; 
+            left: 50%; 
+            transform: translateX(-50%);
+            width: 150px;
+            transition: bottom 0.5s ease; 
+        }
+
+        body {
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; 
+            background: linear-gradient(to top, #87CEEB, #fff);
+        }
+
+        button {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>11.- El vuelo de Superman (DOM y POO)</h1>
+    <p>
+        Crea una clase Superman con un método volar(). Usa el DOM para hacer que una imagen de
+        Superman se desplace hacia arriba cuando se invoque el método volar().
+    </p>
+
+    <img class="superman-img" src="img/superman.png" alt="Superman">
+    <button id="volar-btn">¡VOLAR!</button>
+    
+    <script>
+        class Superman {
+            constructor(elemento) {
+                this.elemento = elemento; 
+                this.altura = 0; 
+            }
+
+            volar() {
+                this.altura += 100; 
+                this.elemento.style.bottom = `${this.altura}px`; 
+            }
+        }
+        const supermanImg = document.querySelector('.superman-img');
+        const superman = new Superman(supermanImg);
+        const volarBtn = document.querySelector('#volar-btn');
+
+        volarBtn.addEventListener('click', () => {
+            superman.volar();
+        });
+    </script>
+</body>
+</html>

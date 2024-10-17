@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>15.- Encuentra a Groot (DOM)</h1>
+<p>Crea un juego donde haya varias imágenes y solo una de ellas sea Groot. Al hacer clic en Groot,
+    muestra una alerta que diga "¡Yo soy Groot!".</p>
+<br>
+<img src="img/drax.png" alt="">
+<img id="groot-js" src="img/groot.png" alt="">
+<img src="img/gamora.png" alt="">
+<img src="img/rocket.png" alt="">
+
+<script>
+    const groot = document.getElementById('groot-js');
+    groot.addEventListener('click', () => {
+        alert('¡Yo soy Groot!');
+    });
+
+</script>
+</body>
+</html>

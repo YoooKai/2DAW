@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ekercicio 14</title>
+</head>
+<body>
+    <h1>4.- Thanos y las Gemas del Infinito (POO)</h1>
+    <p>Crea una clase Gema con atributos como nombre y poder. Luego, crea una clase Thanos con un método recolectarGema() que permita añadir gemas a un array y calcule el poder total.</p>
+
+    <button id="recolectar-gema">Recolectar Gema</button>
+
+    <script>
+        class Gema {
+            constructor(nombre, poder) {
+                this.nombre = nombre;
+                this.poder = poder;
+            }
+        }
+        class Thanos {
+            constructor() {
+                this.gemas = [];
+            }
+            recolectarGemas() {
+                let nombre = prompt("Ingrese el nombre de la gema:");
+                let poder = parseInt(prompt("Ingrese el poder de la gema:"));
+                let gema = new Gema(nombre, poder);
+                this.gemas.push(gema);
+                
+                // Calculando el poder total
+                let total = this.gemas.reduce((acum, gema) => acum + gema.poder, 0);
+                alert("La gema ha sido recolectada. El poder total actual es: " + total);
+            }
+        }
+        const thanos = new Thanos();
+        document.getElementById('recolectar-gema').addEventListener('click', () => {
+            thanos.recolectarGemas();
+        });
+    </script>
+</body>
+</html>

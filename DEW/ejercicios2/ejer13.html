@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La máscara de Batman</title>
+    <style>
+        #batman-img {
+            display: none; /* Ocultar la imagen inicialmente */
+            width: 300px; /* Ajusta el tamaño de la imagen si es necesario */
+            margin-top: 20px; /* Espacio entre el botón y la imagen */
+        }
+    </style>
+</head>
+<body>
+
+<h1>13.- La máscara de Batman (DOM)</h1>
+<button id="mostrar-btn-js">Mostrar Batman</button>
+<img id="batman-img" src="img/batman.png" alt="Batman"> 
+
+<script>
+    const mostrarBtn = document.getElementById('mostrar-btn-js');
+    const batmanImg = document.getElementById('batman-img');
+
+    mostrarBtn.addEventListener('click', () => {
+        if (batmanImg.style.display === 'none') {
+            batmanImg.style.display = 'block';
+            mostrarBtn.textContent = 'Esconder Batman'; 
+        } else {
+            batmanImg.style.display = 'none'; 
+            mostrarBtn.textContent = 'Mostrar Batman'; 
+        }
+    });
+</script>
+
+</body>
+</html>

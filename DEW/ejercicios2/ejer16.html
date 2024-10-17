@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El código secreto de los Vengadores</title>
+</head>
+<body>
+    <h1>16.- El código secreto de los Vengadores (DOM)</h1>
+    <p>Crea un input donde el usuario pueda escribir una contraseña. Si la contraseña es "Vengadores",
+        cambia el texto de un párrafo a "Assemble!"</p>
+    
+    <!-- Formulario que contiene el input de la contraseña -->
+    <form id="password-form">
+        <input type="password" id="password" placeholder="Introduce la contraseña">
+        <button type="submit">Enviar</button>
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+        const passwordForm = document.getElementById("password-form");
+        const passwordInput = document.getElementById("password");
+        const messageP = document.getElementById("message");
+
+        passwordForm.addEventListener("submit", (event) => {
+            // evita que la página se recargue al enviar el formulario
+            event.preventDefault();
+            if (passwordInput.value === 'Vengadores') {
+                messageP.textContent = "Assemble!";
+            } else {
+                messageP.textContent = ":(";
+            }
+        });
+    </script>
+</body>
+</html>

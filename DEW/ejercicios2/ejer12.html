@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignar un poder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+
+<h1>12.- Asigna un poder (DOM)</h1>
+<p>Crea una lista desplegable con los nombres de diferentes superhéroes. Al seleccionar un superhéroe,
+    muestra su poder en un párrafo debajo.</p>
+
+<label for="superhero-select">Selecciona un superhéroe para ver su poder:</label>
+<select id="superhero-select">
+    <option value="">--Elige un superhéroe--</option>
+    <option value="wonderWoman">Wonder Woman</option>
+    <option value="superman">Superman</option>
+    <option value="batman">Batman</option>
+    <option value="thor">Thor</option>
+    <option value="catWoman">Cat Woman</option>
+</select>
+
+<!--Aquí el texto que haya en el párrafo va a cambiar según cuál sea el superhéroe seleccionado-->
+<p id="power-type" class="power"></p> 
+
+<script>
+    // creo un objeto que va a contener el nombre del superhéroe como clave y su poder como valor
+    const superheroPowers = {
+        wonderWoman: 'Fuerza Sobrehumana, Velocidad, Agilidad, y Habilidades de combate excepcionales.',
+        superman: 'Fuerza Sobrehumana, Vuelo, Visión de Rayos X, y Velocidad sobrehumana.',
+        batman: 'Ingenio, habilidades de combate y acceso a tecnología avanzada.',
+        thor: 'Fuerza sobrehumana y control del rayo y la tormenta con su martillo Mjolnir.',
+        catWoman: 'Agilidad, habilidades acrobáticas, y maestría en el sigilo.'
+    };
+
+    //guardo en una variable el elemento superhero-select
+    const superheroSelect = document.getElementById('superhero-select');
+    //guardo en una variable el elemento power-type
+    const powerDisplay = document.getElementById('power-type');
+    // al cambiar el elemento,  ejecuto la función que muestra el poder del superhéroe seleccionado
+    superheroSelect.addEventListener('change', () => {
+        const selectedHero = superheroSelect.value; // Obtener el valor seleccionado, por ejemplo, wonderwoman
+        if (selectedHero) {
+            // mostrar en el contenido del párrafo seleccionado el poder correspondiente
+            powerDisplay.textContent = `${superheroPowers[selectedHero]}`;
+        } else {
+            // si no hay seleccionado, se vacía
+            powerDisplay.textContent = '';
+        }
+
+    });
+</script>
+
+</body>
+</html>
