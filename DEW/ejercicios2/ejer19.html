@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 19 - Kai</title>
+    <style>
+        img{
+            width: 200px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>19.- La elección del Anillo (DOM)</h1>
+    <p>Crea tres imágenes de anillos (uno de Sauron, uno de Gandalf y uno de Frodo). Al hacer clic en el
+        anillo de Frodo, cambia el texto de la página a "Has elegido correctamente"</p>
+        <img class="sauron" src="img/ring.png" alt="">
+        <img class="gandalf" src="img/ring.png" alt="">
+        <img class="frodo" src="img/ring.png" alt="">
+        <p class="good-choice"></p>
+
+        <script>
+            const FrodoRing = document.querySelector('.frodo');
+            FrodoRing.addEventListener('click', function(){
+                const goodChoice = document.querySelector('.good-choice');
+                goodChoice.textContent = "Has elegido correctamente";
+                });
+
+        </script>
+</body>
+</html>

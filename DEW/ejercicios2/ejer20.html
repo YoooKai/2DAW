@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 20 - Kai</title>
+</head>
+<body>
+    <h1>20.- El duelo entre magos (POO)</h1>
+    <p>Crea dos clases Mago y Hechizo. Cada mago debe tener un hechizo asignado y al invocar el
+        hechizo, el que tenga mayor poder gana el duelo.</p>
+    <script>
+        class Hechizo {
+            constructor(nombre, poder) {
+                this.nombre = nombre;
+                this.poder = poder;
+            }
+        }
+        class Mago {
+            constructor(nombre, hechizo) {
+                this.nombre = nombre;
+                this.hechizo = hechizo;
+            }
+            lanzarHechizo() {
+                return this.hechizo;
+            }
+        }
+        function duelo(mago1, mago2) {
+            const hechizoMago1 = mago1.lanzarHechizo();
+            const hechizoMago2 = mago2.lanzarHechizo();
+
+            if (hechizoMago1.poder > hechizoMago2.poder) {
+                return `${mago1.nombre} gana el duelo con el hechizo ${hechizoMago1.nombre}!`;
+            } else if (hechizoMago1.poder < hechizoMago2.poder) {
+                return `${mago2.nombre} gana el duelo con el hechizo ${hechizoMago2.nombre}!`;
+            } else {
+                return "El duelo es un empate!";
+            }
+        }
+
+
+        const hechizo1 = new Hechizo("Rayo", 90);
+        const hechizo2 = new Hechizo("Fuego", 80);
+
+        const mago1 = new Mago("Gandalf", hechizo1);
+        const mago2 = new Mago("Saruman", hechizo2);
+
+        console.log(duelo(mago1, mago2));
+    </script>
+</body>
+</html>
