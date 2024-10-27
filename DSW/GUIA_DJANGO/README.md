@@ -46,7 +46,7 @@ pip install django
 Usa el siguiente comando para generar la estructura inicial de tu proyecto Django:
 
 ```pyhton
-django-admin startproject supertodo .
+django-admin startproject main .
 ```
 
 El último . asegura que la estructura del proyecto se cree en el directorio actual. Deberías ver un archivo manage.py y una carpeta llamada questlog creada en tu directorio.
