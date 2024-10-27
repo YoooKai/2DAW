@@ -1,5 +1,14 @@
 # Guía de Inicio con Django
 
+## ÍNDICE
+- <a href="#primeros">Primeros pasos</a>
+- <a href="#modelo">Modelo</a>
+- <a href="#vistas">Vistas</a>
+- <a href="#url">URL</a>
+- <a href="#plantillas">Plantillas</a>
+- <a href="#formulario">Formulario</a>
+- <a href="#css">Añadir CSS</a>
+
 Esta guía la hice para no olvidarme de cómo configurar un entorno de desarrollo con Django paso a paso.
 
 ## Flujo de trabajo
@@ -15,13 +24,13 @@ Primero, crea un directorio donde se alojará tu proyecto y ubícate dentro de e
 ```bash
 mkdir supertodo && cd supertodo
 ```
-## 1. Crear entorno virtual
+## 1. Crear entorno virtual <p id="primeros"></p>
 Es buena práctica trabajar con un entorno virtual para aislar las dependencias del proyecto. 
 ```pyhton
 python -m venv .venv --prompt supertodo
 ```
 Este comando creará un entorno virtual en la carpeta .venv y establecerá questlog como su nombre para que sea más fácil identificarlo en tu terminal.
-## 2. Actvar el entorno virtual
+## 2. Activar el entorno virtual
 Es importante activar el entorno virtual siempre que trabajes en el proyecto para que las dependencias se gestionen correctamente.
 Importante activarlo siempre.
 ```pyhton
@@ -69,7 +78,7 @@ En Django, las funcionalidades suelen estar organizadas en aplicaciones independ
 ```
 Esto creará una nueva carpeta todo con la estructura básica de una aplicación Django. Recuerda agregar la nueva app a INSTALLED_APPS en settings.py.
 
-# MODELS
+# MODELO <p id="modelo"></p>
 Los modelos son la representación conceptual abstracta de los datos que queremos represnetar en la tabla.
 - Cada módulo se define como una clase en python y cada atributo representa un campo de la tabla.
 
@@ -233,7 +242,7 @@ Esto incluye todas las URLs definidas en el archivo `urls.py` dentro de la aplic
 - `namespace='tasks'`: Define un espacio de nombres para las URLs de esta aplicación, permitiendo usar nombres como `'tasks:task-list'` para hacer referencia a las vistas dentro de `tasks`.
 
 
-# Vistas
+# Vistas <p id="vistas"></p>
 Las vistas son funciones que se encargan de recibir la petición HTTP, realizar la lógica necesaria y devolver una respuesta HTTP.
 
 # Estructura de una Vista en Django
@@ -279,7 +288,7 @@ contexto = {
 return render(request, 'plantilla.html', contexto)
 
 ```
- ## En nuestro supertodo:
+## En nuestro supertodo:
 
 ### Importaciones
 ```python
@@ -407,7 +416,7 @@ def delete_task(request, task_slug):
 
 - Plantilla: tasks/confirm-delete.html
 
-# Las URL
+# Las URL <p id="url"></p>
 
 Tenemos que crear un archivo llamado `urls.py` dentro de la aplicación. 
 
@@ -488,7 +497,7 @@ Se definen las diferentes rutas y se asignan a vistas específicas:
 - **Nombre**: `'completed-tasks'`
 - Esta ruta muestra solo las tareas completadas.
 
-# Plantillas
+# Plantillas <p id="plantillas"></p>
 
 Dentro de tasks, creamos la carpeta templates, y dentro de esta, un archivo `base.html`.
 Este  archivo será el template base para todas las páginas de la aplicación. 
@@ -719,7 +728,7 @@ Este bloque reemplaza el contenido del bloque title definido en base.html.
 
 Antes de hablar de los demás templates, es mportante explicar los formularios.
 
-## FORMULARIOS MODELO
+## FORMULARIOS MODELO <p id="formulario"></p>
 <p id="form"><p>
 Los formularios modelo en Django son una forma de crear formularios que se relacionan con
 modelos de la base de datos. Estos formularios se pueden utilizar para crear, editar
@@ -901,3 +910,66 @@ def edit_task(request, task_slug: str):
 
 - Plantilla: tasks/edit-task.html
 
+## AÑADIR HOJA DE ESTILOS CSS <p id="css"></p>
+
+### 1. Crear una Carpeta de Archivos Estáticos (Static)
+
+- En Django, los archivos CSS, imágenes y JavaScript se consideran archivos estáticos. Para que Django los gestione, debes colocarlos en una carpeta específica dentro de cada aplicación o en una ubicación común del proyecto.
+
+  Dentro de la aplicación, creamos una carpeta llamada static y dentro otra con el nombre de la aplicación para organizar mejor los archivos. La estructura sería algo como esto:
+
+```arduino
+todo/
+├── static/
+│   └── todo/
+│       └── styles.css
+
+```
+
+### 2. Configurar el archivo settings.py
+
+Django necesita saber dónde buscar los archivos estáticos. Por defecto, Django ya tiene configurada la variable STATIC_URL en settings.py:
+
+```python
+
+STATIC_URL = '/static/'
+```
+Si planeas usar archivos estáticos en diferentes aplicaciones, también puedes especificar un directorio central en STATICFILES_DIRS, por ejemplo:
+
+```python
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+```
+
+### 3. Cargar los Archivos Estáticos en las Plantillas
+
+Para que una plantilla HTML pueda utilizar los archivos CSS, primero debes cargar los archivos estáticos de Django y luego vincular el archivo CSS en la etiqueta <link>.
+
+Abrimos la plantilla HTML (por ejemplo, lask-list.html) 
+y agregamos el siguiente código al inicio del archivo (esto ya lo teníamos):
+
+```html
+
+{% load static %}
+```
+
+En la sección <head> de tu HTML, agregamos un enlace al archivo CSS utilizando 
+la etiqueta <link> y la etiqueta {% static %}:
+
+```html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPERTODO</title>
+    <link rel="stylesheet" href="{% static 'todo/styles.css' %}">
+</head>
+<body>
+    <!-- Contenido de la página -->
+</body>
+</html>
+```
