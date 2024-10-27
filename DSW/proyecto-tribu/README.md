@@ -20,6 +20,7 @@ Debe tener 3 Aplicaciones:
 - created_at
 - updated_at
 - user(fk)
+- echo (fk)
 
 ### URL
 - `/echos/` - todos los echos, echo-list
