@@ -22,13 +22,13 @@ Debe tener 3 Aplicaciones:
 - user(fk)
 
 ### URL
-`/echos/` - todos los echos, echo-list
-`/echos/pk` - echo concreto, echo-detail
-`/echos/pk/edit` - editar echo concreto
-`/echos/pk/delete` - eliminar echo concreto
-`/echos/add/` - añadir un echo
-`/echos/@username` - ver los echos de usuario concreto
-`/echos/pk/waves/add` - añadir un wave a un echo concreto
-`/echos/pk/waves/` - todos los waves de un echo concreto
-`/waves/pk/edit` - editar un wave concreto
-`/waves/pk/delete` - eliminar un wave concreto
+- `/echos/` - todos los echos, echo-list
+- `/echos/pk` - echo concreto, echo-detail
+- `/echos/pk/edit` - editar echo concreto
+- `/echos/pk/delete` - eliminar echo concreto
+- `/echos/add/` - añadir un echo
+- `/echos/@username` - ver los echos de usuario concreto
+- `/echos/pk/waves/add` - añadir un wave a un echo concreto
+- `/echos/pk/waves/` - todos los waves de un echo concreto
+- `/waves/pk/edit` - editar un wave concreto
+- `/waves/pk/delete` - eliminar un wave concreto
