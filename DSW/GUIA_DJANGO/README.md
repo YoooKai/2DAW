@@ -841,7 +841,7 @@ class EditTaskForm(forms.ModelForm):
 
  ## Plantilla para formulario
 
-Ubicación del archivo: `posts/templates/posts/add_post.html`
+Ubicación del archivo: `posts/templates/posts/add-task.html`
 - Como se ve, solo es necesario poner `{{ form }}` y desde `form.py`, se renderizará 
 el formulario con los campos.
 
