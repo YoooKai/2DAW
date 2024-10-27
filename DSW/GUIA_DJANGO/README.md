@@ -114,10 +114,10 @@ class Task(models.Model):
 Como hemos modificado la estructura de la aplcación, tenemos que aplicar migraciones en la terminal.
 
 ```python
-./manage.py make migrations
+./manage.py makemigrations
 ```
 ```python
-./manage.py make migrate
+./manage.py migrate
 ```
 
 ## 3. Activar el modelo en la interfaz administrativa.
