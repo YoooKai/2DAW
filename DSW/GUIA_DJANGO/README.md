@@ -142,7 +142,7 @@ class TaskAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ['task']}
     
 
-admin.site.register(ToDoItem, TaskAdmin)
+admin.site.register(Task, TaskAdmin)
 
 ```
 ## 4. Incluir la aplicación en la lista de aplicaciones instaladas.
