@@ -784,6 +784,22 @@ class EditTaskForm(forms.ModelForm):
         fields = ('name', 'description', 'complete_before')
 ```
 
+
+  ```python
+  {% extends "base.html" %}
+{% block  title %}Supertodo: Edit Task{% endblock title %}
+{% block body %}
+<div class="container">
+<h1>Editando tarea "{{ task.name }}"</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="Save Changes" class="btn btn-primary">
+</form>
+</div>
+{% endblock body %}
+  ```
+
 ### 1. Importaciones y modelo de referencia
 
 ```python
@@ -909,6 +925,7 @@ def edit_task(request, task_slug: str):
     - Si es una solicitud GET: Carga la tarea en el formulario para que el usuario pueda modificarla.
 
 - Plantilla: tasks/edit-task.html
+
 
 ## AÑADIR HOJA DE ESTILOS CSS <p id="css"></p>
 
