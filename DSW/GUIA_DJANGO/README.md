@@ -74,9 +74,9 @@ Por defecto, el servidor estará corriendo en http://127.0.0.1:8000/. Para acced
 En Django, las funcionalidades suelen estar organizadas en aplicaciones independientes. Para crear una nueva aplicación dentro de tu proyecto, usa el siguiente comando:
 
 ```pyhton
-./manage.py startapp todo
+./manage.py startapp tasks
 ```
-Esto creará una nueva carpeta todo con la estructura básica de una aplicación Django. Recuerda agregar la nueva app a INSTALLED_APPS en settings.py.
+Esto creará una nueva carpeta tasks con la estructura básica de una aplicación Django. Recuerda agregar la nueva app a INSTALLED_APPS en settings.py.
 
 # MODELO <p id="modelo"></p>
 Los modelos son la representación conceptual abstracta de los datos que queremos represnetar en la tabla.
@@ -188,12 +188,12 @@ Acceder a la consola interactiva de Django para interactuar con tus modelos y ha
 
 `./manage.py shell`
 
-Este comando importa el modelo Task desde el archivo models.py de la aplicación todo.
- Aquí estás asumiendo que tu aplicación todo tiene un modelo llamado Task que representa una tarea 
+Este comando importa el modelo Task desde el archivo models.py de la aplicación tasks.
+ Aquí estás asumiendo que tu aplicación tasks tiene un modelo llamado Task que representa una tarea 
 
-`from todo.models import Task`
+`from tasks.models import Task`
 
-Consulta a la base de datos para obtener todos los objetos de la tabla que corresponde al modelo Task.
+Consulta a la base de datos para obtener taskss los objetos de la tabla que corresponde al modelo Task.
 
 `Task.objects.all()`
 
@@ -206,7 +206,7 @@ Se pueden guardar consultas en variables y acceder a las propiedades del objeto.
 También podemos crear una nueva tarea desde la terminal.
 
 ## 6. Capturar la URL de la aplicacón en url.py
-En el fichero urls.py que se encuentra en el directorio main de la aplicación todo, 
+En el fichero urls.py que se encuentra en el directorio main de la aplicación tasks, 
 debemos capturar la URL de la aplicación.
 
 
@@ -919,9 +919,9 @@ def edit_task(request, task_slug: str):
   Dentro de la aplicación, creamos una carpeta llamada static y dentro otra con el nombre de la aplicación para organizar mejor los archivos. La estructura sería algo como esto:
 
 ```arduino
-todo/
+tasks/
 ├── static/
-│   └── todo/
+│   └── tasks/
 │       └── styles.css
 
 ```
