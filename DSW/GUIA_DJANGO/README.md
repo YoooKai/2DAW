@@ -430,14 +430,15 @@ app_name = 'tasks'
 
 urlpatterns = [
     path('tasks/', views.task_list, name='task-list'),
-    path('tasks/add', views.add_task, name='add-task'),
+    path('tasks/add/', views.add_task, name='add-task'),
     path('tasks/task/<task_slug>/', views.task_detail, name='task-detail'),
-    path('tasks/edit/<task_slug>/', views.edit_task, name='edit-task'),
-    path('tasks/delete/<task_slug>/', views.delete_task, name='delete-task'),
-    path('tasks/toggle/<task_slug>/', views.toggle_task, name='toggle-task'),
-    path('tasks/pending', views.pending_tasks, name='pending-tasks'),
-    path('tasks/done', views.completed_tasks, name='completed-tasks'),
+    path('tasks/task/<task_slug>/edit/', views.edit_task, name='edit-task'),
+    path('tasks/task/<task_slug>/delete/', views.delete_task, name='delete-task'),
+    path('tasks/task/<task_slug>/toggle/', views.toggle_task, name='toggle-task'),
+    path('tasks/pending/', views.pending_tasks, name='pending-tasks'),
+    path('tasks/done/', views.completed_tasks, name='completed-tasks'),
 ]
+
 ```
 
 - `from django.urls import path`: Importa la función path, que se utiliza para definir rutas de URL.
