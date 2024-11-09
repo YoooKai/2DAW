@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Rock</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="img/piedra-ico.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="testimonios-style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&family=Delius&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top nav-element px-5 py-0">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <img src="img/logo.png" alt="Logo Pet Rock" class="logo-img">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="productos.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link activo" href="testimonios.html">Testimonio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacto.html">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Breadcrumb -->
+  <nav aria-label="breadcrumb" class="pt-5 mt-5 mb-0 pb-0 ps-2">
+    <ol class="breadcrumb container">
+      <li class="breadcrumb-item"><a href="index.html">Inicio</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Testimonios</li>
+    </ol>
+  </nav>
+
+  <!-- Testimonial Slider -->
+  <div class="container my-5">
+    <h2 class="text-center mb-4 animate__animated animate__bounce">Descubre lo que nuestros adoptantes felices tienen que decir sobre sus Pet Rocks.</h2>
+    <div class="line3 animate__animated animate__flash"></div>
+    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Testimonial group 1 -->
+        <div class="carousel-item active">
+          <div class="row justify-content-center">
+            <!-- Testimonial 1 -->
+            <div class="col-lg-3 col-md-4 col-12 mb-4">
+              <div class="card">
+                <img src="img/c1.png" class="card-img-top" alt="Roca 1">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Miau</h5>
+                  <p class="card-text">
+                    "Desde que adopté a Miau, mi vida ha cambiado. Siempre está ahí, tranquila y perfecta para acompañarme mientras 
+                    leo o veo televisión. Nunca me juzga, solo me hace compañía sin complicaciones. Es el amigo perfecto para los amantes de los gatos, sin 
+                    las travesuras pero con toda la dulzura."
+                  </p>
+                  <p class="name"><strong>Juan Pérez</strong></p>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial 2 -->
+            <div class="col-lg-3 col-md-4 col-12 mb-4">
+              <div class="card">
+                <img src="img/c2.png" class="card-img-top" alt="Roca 2">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Clara</h5>
+                  <p class="card-text">
+                    "Clara ha sido una excelente compañera. Me encanta verla en el jardín, siendo tan serena y hermosa. Es como tener una gallina que pone calma, no huevos. Siempre está en su lugar, observando el mundo sin prisas. Es la mascota ideal para quienes disfrutan de la paz y la tranquilidad."
+                  </p><p><strong>María López</strong></p>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial 3 -->
+            <div class="col-lg-3 col-md-4 col-12 mb-4">
+              <div class="card">
+                <img src="img/c3.png" class="card-img-top" alt="Roca 3">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Alvis</h5>
+                  <p class="card-text">"Alvis es mi roca de ardillas y me hace sentir como si tuviera unas pequeñas amigas peludas, pero sin el desorden. Siempre me acompañan en mis caminatas por el parque, y es como tener unas ardillas que no corren por todas partes, pero me da la misma energía positiva. 
+                    ¡Es una mascota perfecta para mi estilo de vida!"</p>
+                  <p><strong>Carlos Gómez</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial group 2 -->
+        <div class="carousel-item">
+          <div class="row justify-content-center">
+            <!-- Testimonial 4 -->
+            <div class="col-lg-3 col-md-4 col-12 mb-4">
+              <div class="card">
+                <img src="img/c4.png" class="card-img-top" alt="Roca 1">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Penny</h5>
+                  <p class="card-text">"Nunca imaginé que una zarigüeya de roca sería tan fascinante. Penny tiene una presencia que me tranquiliza y me recuerda a la naturaleza salvaje. Su calma es justo lo que necesito después de un largo día de trabajo. ¡Definitivamente una gran elección para los que buscan una mascota relajante!"</p>
+                  <p><strong>Carolina Fernández</strong></p>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial 5 -->
+            <div class="col-lg-3 col-md-4 col-12 mb-4">
+              <div class="card">
+                <img src="img/c5.png" class="card-img-top" alt="Roca 2">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Max</h5>
+                  <p class="card-text">
+                    "Pequeño Max es mi roca de hámster y me encanta tenerlo en mi escritorio. Su tamaño compacto y su actitud tranquila hacen que sea un compañero perfecto para mis días de oficina. No corre en su rueda, pero su presencia siempre me hace sonreír y sentirme acompañado."
+                    </p><p><strong>Roberto Martínez</strong></p>
+                </div>
+              </div>
+            </div>
+            <!-- Testimonial 6 -->
+            <div class="col-lg-3 col-md-4 col-12 mb-4">
+              <div class="card">
+                <img src="img/c6.png" class="card-img-top" alt="Roca 3">
+                <div class="card-body text-center">
+                  <h5 class="card-title">Rex</h5>
+                  <p class="card-text"> "Rex es como el perro perfecto, pero sin la necesidad de sacarlo a pasear. Su lealtad es inquebrantable, siempre está a mi lado, en la sala, en mi cama o en la mesa del trabajo. Nunca ladra, pero su calma y cariño son lo que necesito para desconectar del ajetreo diario. ¡Un verdadero compañero!"</p>
+                  <p><strong>Laura González</strong></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+
+    <!-- Carousel Indicators (Circles) -->
+    <div class="d-flex justify-content-center mt-4">
+      <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="carousel-indicator active"></button>
+      <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" class="carousel-indicator"></button>
+    </div>
+  </div>
+
+
+  <!-- Formulario de Opinión -->
+<div class="container my-5">
+    <h2 class="text-center mb-4 animate__animated animate__bounce animate__delay-2s">Deja tu Opinión</h2>
+    <form action="#" method="POST" id="opinionForm" >
+      <div class="row">
+        <!-- Campo de Nombre -->
+        <div class="col-md-6 ">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Tu Nombre</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" required>
+          </div>
+        </div>
+        <!-- Campo de Roca -->
+        <div class="col-md-6">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre de su roca</label>
+            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa el nombre de su roca" required>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Campo de Opinión -->
+      <div class="mb-3">
+        <label for="comentario" class="form-label">Tu Opinión</label>
+        <textarea class="form-control" id="comentario" name="comentario" rows="4" placeholder="Escribe tu comentario..." required></textarea>
+      </div>
+  
+      <!-- Campo de Imagen (opcional) -->
+      <div class="mb-3">
+        <label for="imagen" class="form-label">Sube una Imagen de tu PetRock</label>
+        <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
+      </div>
+  
+      <!-- Botón de Enviar -->
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn btn-primary animate__animated animate__pulse animate__delay-2s">Enviar Opinión</button>
+      </div>
+    </form>
+  </div>
+  
+
+  <!-- FOOTER -->
+  <footer class="text-center text-white" style="background-color: #5c787e; width: 100%;">
+    <div class="container-fluid ">
+      <section class="mt-2">
+        <div class="row text-center d-flex justify-content-center pt-3">
+          <div class="col-md-2 mb-0 pb-0">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#about" class="text-white">Sobre Nosotros</a>
+            </h6>
+          </div>
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#adopcion" class="text-white">Adopta una Pet Rock</a>
+            </h6>
+          </div>
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#faq" class="text-white">Preguntas Frecuentes</a>
+            </h6>
+          </div>
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#ayuda" class="text-white">Ayuda</a>
+            </h6>
+          </div>
+          <div class="col-md-2">
+            <h6 class="text-uppercase font-weight-bold">
+              <a href="#contacto" class="text-white">Contacto</a>
+            </h6>
+          </div>
+        </div>
+      </section>
+      <hr class="my-2" />
+      <section class="mb-4">
+        <div class="row d-flex justify-content-center">
+          <div class="col-lg-8">
+            <p>
+              En PetRock te ofrecemos una compañía inigualable: una Pet Rock. Perfecta para quienes buscan una presencia tranquila y sin complicaciones, nuestra roca es el amigo ideal para quienes valoran la simplicidad y el bienestar en su día a día. ¡Hazte con la tuya y experimenta una nueva forma de amistad!
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="text-center mb-4 social">
+        <a href="https://www.facebook.com" class="text-white me-4" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://twitter.com" class="text-white me-4" target="_blank">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://plus.google.com" class="text-white me-4" target="_blank">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="https://www.instagram.com" class="text-white me-4" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.linkedin.com" class="text-white me-4" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com" class="text-white me-4" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      </section>
+    </div>
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2024 Copyright:
+      <a class="text-white" href="#">PetRock.com</a>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
