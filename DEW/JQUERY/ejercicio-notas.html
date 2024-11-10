@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio de Promedios</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Examen 1</th>
+                <th>Examen 2</th>
+                <th>Examen 3</th>
+                <th>Promedio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Juan</td>
+                <td>6</td>
+                <td>8</td>
+                <td>7</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>María</td>
+                <td>4</td>
+                <td>5</td>
+                <td>3</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Pedro</td>
+                <td>9</td>
+                <td>7</td>
+                <td>8</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Lucía</td>
+                <td>2</td>
+                <td>4</td>
+                <td>5</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function() {
+            var numElementos = 3; // Número de exámenes
+
+            $("tbody tr").each(function(index) {
+                console.log(`ÍNDICE ------>  ${index}`);
+                
+                // Obtener las calificaciones de cada examen
+                let examen1 = $(`tbody tr:nth-child(${index + 1}) td`).eq(1).text();
+                console.log(`Examen 1 ------> ${examen1}`);
+                let examen2 = $(`tbody tr:nth-child(${index + 1}) td`).eq(2).text();
+                console.log(`Examen 2 ------> ${examen2}`);
+                let examen3 = $(`tbody tr:nth-child(${index + 1}) td`).eq(3).text();
+                console.log(`Examen 3 ------> ${examen3}`);
+
+                // Calcular el promedio
+                let total = (parseFloat(examen1) + parseFloat(examen2) + parseFloat(examen3)) / numElementos;
+                $(`tbody tr:nth-child(${index + 1}) td`).eq(4).text(total.toFixed(2)); // Colocar el promedio con dos decimales
+
+                // Cambiar color según el promedio
+                (total >= 5) ? $(this).css("color", "green") : $(this).css("color", "red");
+            });
+        });
+    </script>
+</body>
+</html>
