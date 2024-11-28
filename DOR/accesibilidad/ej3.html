@@ -1,0 +1,36 @@
+    <!--Original:
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Botón</title>
+</head>
+<body>
+  <h1>Interacción</h1>
+  <div onclick="alert('¡Botón presionado!')" style="border: 1px solid; padding: 10px; width: 100px; text-align: center; cursor: pointer;">
+    Presionar
+  </div>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botón accesible</title>
+</head>
+<body>
+
+<!-- Se mejoró la accesibilidad al reemplazar un `<div>` clickeable con un elemento `<button>` semántico, proporcionando 
+compatibilidad nativa con el teclado y lectores de pantalla. Además, se añadió el atributo `aria-label` para describir la acción del botón. -->
+  <h1>Interacción</h1>
+  <button
+    onclick="alert('¡Botón presionado!')"
+    aria-label="Presionar para activar una alerta"
+    style="padding: 10px; width: 100px; font-size: 16px; cursor: pointer;"
+  >
+    Presionar
+  </button>
+</body>
+</html>

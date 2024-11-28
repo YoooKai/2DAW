@@ -1,0 +1,70 @@
+<!--Ejercicio 8. Lista desplegable sin indicar su estado
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Menú</title>
+  <style>
+    .submenu {
+      display: none;
+    }
+    .menu:hover .submenu {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Menú</h1>
+  <div class="menu">
+    Opciones
+    <div class="submenu">
+      <p>Opción 1</p>
+      <p>Opción 2</p>
+    </div>
+  </div>
+</body>
+</html>
+-->
+
+<!--
+  Mejoras de accesibilidad:
+  1. Se añadió un botón para controlar el submenú, haciéndolo accesible para usuarios de teclado.
+  2. Atributos ARIA:
+     - aria-controls vincula el botón al submenú.
+     - aria-expanded indica si el submenú está abierto o cerrado.
+  3. JavaScript actualiza dinámicamente el estado del submenú y aria-expanded.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Accesible</title>
+  <style>
+    .submenu {
+      display: none;
+    }
+    .menu[aria-expanded="true"] .submenu {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Menú</h1>
+  <div class="menu" aria-haspopup="true" aria-expanded="false">
+    <button aria-controls="submenu" onclick="toggleSubmenu()">Opciones</button>
+    <div class="submenu" id="submenu">
+      <p>Opción 1</p>
+      <p>Opción 2</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleSubmenu() {
+      const menu = document.querySelector('.menu');
+      const isExpanded = menu.getAttribute('aria-expanded') === 'true';
+      menu.setAttribute('aria-expanded', !isExpanded);
+    }
+  </script>
+</body>
+</html>

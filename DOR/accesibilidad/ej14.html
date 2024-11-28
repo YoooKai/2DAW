@@ -1,0 +1,78 @@
+<!--
+Ejercicio 14. Tabla de datos compleja
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Reporte de Ventas</title>
+</head>
+<body>
+  <h1>Reporte Mensual de Ventas</h1>
+  <table border="1">
+    <tr>
+      <td>Producto</td>
+      <td>Enero</td>
+      <td>Febrero</td>
+      <td>Marzo</td>
+    </tr>
+    <tr>
+      <td>Zapatos</td>
+      <td>100</td>
+      <td>150</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>Camisas</td>
+      <td>200</td>
+      <td>250</td>
+      <td>300</td>
+    </tr>
+  </table>
+</body>
+</html>
+-->
+
+<!--
+Mejoras de accesibilidad implementadas:
+1. Se añadió un elemento <caption> para proporcionar una descripción general del contenido de la tabla.
+2. Las cabeceras de las columnas y las filas se marcaron con <th> en lugar de <td>, utilizando el atributo scope para indicar la relación (scope="col" para columnas y scope="row" para filas).
+3. Esto permite a los usuarios de lectores de pantalla entender mejor la relación entre los datos de las celdas y sus cabeceras asociadas.
+-->
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reporte de Ventas</title>
+</head>
+<body>
+  <h1>Reporte Mensual de Ventas</h1>
+  <table border="1">
+    <caption>Ventas de productos por mes durante el primer trimestre</caption>
+    <thead>
+      <tr>
+        <th scope="col">Producto</th>
+        <th scope="col">Enero</th>
+        <th scope="col">Febrero</th>
+        <th scope="col">Marzo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Zapatos</th>
+        <td>100</td>
+        <td>150</td>
+        <td>200</td>
+      </tr>
+      <tr>
+        <th scope="row">Camisas</th>
+        <td>200</td>
+        <td>250</td>
+        <td>300</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

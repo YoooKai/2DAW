@@ -1,0 +1,67 @@
+<!--
+Ejercicio 12. Blog con múltiples secciones
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Mi Blog</title>
+</head>
+<body>
+  <div>
+    <div>
+      <span>Inicio</span> | <span>Sobre mí</span> | <span>Contacto</span>
+    </div>
+    <div>
+      <h2>Artículo Reciente</h2>
+      <p>Este es el contenido del artículo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <a href="#">Leer más</a>
+    </div>
+    <div>
+      <h2>Otro Artículo</h2>
+      <p>Contenido del segundo artículo. Lorem ipsum dolor sit amet.</p>
+      <a href="#">Leer más</a>
+    </div>
+  </div>
+</body>
+</html>
+-->
+
+<!--
+ accesibilidad implementada:
+1. se reemplazaron los elementos <div> con <nav>, <ul>, y <section> para hacer la estructura más semántica y clara.
+2. sse añadieron atributos aria-label para los enlaces de navegación y los enlaces "Leer más" para describir su propósito a los usuarios de lectores de pantalla.
+3. se añadió un atributo aria-labelledby a las secciones principales para asociarlas con los encabezados correspondientes.
+4. el menú de navegación fue adaptado con una lista no ordenada <ul> para ser más estructurado.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Blog</title>
+</head>
+<body>
+  <nav aria-label="Navegación principal">
+    <ul style="list-style: none; display: flex; gap: 10px; padding: 0;">
+      <li><a href="#inicio" aria-label="Ir a la página de inicio">Inicio</a></li>
+      <li><a href="#sobre-mi" aria-label="Ir a la sección Sobre mí">Sobre mí</a></li>
+      <li><a href="#contacto" aria-label="Ir a la sección de contacto">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section aria-labelledby="articulo-reciente">
+      <h2 id="articulo-reciente">Artículo Reciente</h2>
+      <p>Este es el contenido del artículo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <a href="#" aria-label="Leer más sobre el artículo reciente">Leer más</a>
+    </section>
+
+    <section aria-labelledby="otro-articulo">
+      <h2 id="otro-articulo">Otro Artículo</h2>
+      <p>Contenido del segundo artículo. Lorem ipsum dolor sit amet.</p>
+      <a href="#" aria-label="Leer más sobre otro artículo">Leer más</a>
+    </section>
+  </main>
+</body>
+</html>

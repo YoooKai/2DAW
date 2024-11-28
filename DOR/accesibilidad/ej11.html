@@ -1,0 +1,82 @@
+<!--<!DOCTYPE html>
+Ejercicio 11. Página web de un producto
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Zapatos Deportivos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .precio {
+      font-size: 20px;
+      color: red;
+    }
+    .boton {
+      background-color: blue;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Zapatos Deportivos</h1>
+    <div>
+      <img src="zapatos.jpg">
+      <p>Los mejores zapatos para correr.</p>
+      <p class="precio">Precio: $50</p>
+    </div>
+    <div class="boton" onclick="alert('Producto añadido al carrito')">Añadir al carrito</div>
+  </div>
+</body>
+</html>
+-->
+
+
+<!--
+accesibilidad implementadas:
+1. se agregó un atributo alt descriptivo a la imagen del producto para personas con discapacidad visual.
+2. la etiqueta <div> con clase "boton" fue reemplazada por un botón (<button>) para que sea más semántico y funcional para usuarios de teclado.
+3. se añadió un atributo aria-label al botón para describir claramente su acción a los usuarios de tecnologías de asistencia.
+4. el precio incluye un span con aria-label para facilitar su comprensión en lectores de pantalla.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zapatos Deportivos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .precio {
+      font-size: 20px;
+      color: red;
+    }
+    .boton {
+      background-color: blue;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      border: none;
+      text-align: center;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>Zapatos Deportivos</h1>
+    <div>
+      <img src="zapatos.jpg" alt="Zapatos deportivos rojos, ideales para correr.">
+      <p>Los mejores zapatos para correr.</p>
+      <p class="precio">Precio: <span aria-label="cincuenta dólares">$50</span></p>
+    </div>
+    <button class="boton" aria-label="Añadir Zapatos Deportivos al carrito" onclick="alert('Producto añadido al carrito')">Añadir al carrito</button>
+  </div>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!--Ejercicio 13. Formulario de inscripción 
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Formulario de Inscripción</title>
+</head>
+<body>
+  <h1>Formulario de Inscripción</h1>
+  <form>
+    <div>
+      <input type="text" placeholder="Nombre completo">
+    </div>
+    <div>
+      <input type="email" placeholder="Correo electrónico">
+    </div>
+    <div>
+      <select>
+        <option>Seleccionar país</option>
+        <option>México</option>
+        <option>España</option>
+        <option>Colombia</option>
+      </select>
+    </div>
+    <div>
+      <button>Enviar</button>
+    </div>
+  </form>
+</body>
+</html>
+-->
+
+<!--
+accesibilidad implementada:
+1. se añadieron etiquetas <label> asociadas con los campos de entrada (<input> y <select>) mediante el atributo for para facilitar la comprensión por usuarios de lectores de pantalla.
+2. se usaron los atributos required y aria-required="true" en los campos obligatorios para que los usuarios sepan que son necesarios.
+3. el atributo placeholder se mantuvo como texto informativo complementario, pero no como sustituto del <label>.
+4. se añadió un valor inicial deshabilitado y seleccionado en el <select> para indicar claramente que el usuario debe hacer una elección.
+5. el botón de envío incluye el atributo aria-label para describir su función de manera explícita.
+-->
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Inscripción</title>
+</head>
+<body>
+  <h1>Formulario de Inscripción</h1>
+  <form>
+    <div>
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo" required aria-required="true">
+    </div>
+    <div>
+      <label for="correo">Correo electrónico:</label>
+      <input type="email" id="correo" name="correo" placeholder="Escribe tu correo electrónico" required aria-required="true">
+    </div>
+    <div>
+      <label for="pais">País:</label>
+      <select id="pais" name="pais" required aria-required="true">
+        <option value="" disabled selected>Seleccionar país</option>
+        <option value="mexico">México</option>
+        <option value="espana">España</option>
+        <option value="colombia">Colombia</option>
+      </select>
+    </div>
+    <div>
+      <button type="submit" aria-label="Enviar formulario de inscripción">Enviar</button>
+    </div>
+  </form>
+</body>
+</html>

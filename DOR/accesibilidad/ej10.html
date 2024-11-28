@@ -1,0 +1,48 @@
+<!--
+Ejercicio 10. Página dinámica sin accesibilidad
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Notificaciones</title>
+  <script>
+    function mostrarMensaje() {
+      document.getElementById('mensaje').innerText = '¡Nueva notificación!';
+    }
+  </script>
+</head>
+<body>
+  <h1>Página de Notificaciones</h1>
+  <button onclick="mostrarMensaje()">Mostrar Notificación</button>
+  <div id="mensaje"></div>
+</body>
+</html>
+-->
+<!--
+ accesibilidad implementadas:
+1.  el atributo role="status" al <div> que muestra el mensaje, permitiendo a los lectores de pantalla notificar cambios dinámicos en el contenido.
+2. el atributo aria-hidden="true" al mensaje inicial para ocultarlo de los lectores de pantalla hasta que sea relevante.
+3. el botón ahora incluye el atributo aria-label para describir su función de forma más clara para usuarios con discapacidades visuales.
+4. la función javaScript ajusta aria-hidden a "false" cuando se muestra la notificación, asegurando que sea anunciada por tecnologías de asistencia.
+-->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notificaciones Accesibles</title>
+  <script>
+    function mostrarMensaje() {
+      const mensajeDiv = document.getElementById('mensaje');
+      mensajeDiv.innerText = '¡Nueva notificación!';
+      mensajeDiv.setAttribute('aria-hidden', 'false');
+    }
+  </script>
+</head>
+<body>
+  <h1>Página de Notificaciones</h1>
+  <button onclick="mostrarMensaje()" aria-label="Mostrar notificación">Mostrar Notificación</button>
+  <div id="mensaje" role="status" aria-hidden="true"></div>
+</body>
+</html>

@@ -1,0 +1,76 @@
+Ejercicio 2. Formulario sin etiquetas y mensajes de error
+   <!-- Original----------------
+
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Registro</title>
+</head>
+<body>
+  <h1>Formulario de Registro</h1>
+  <form>
+    <input type="text" placeholder="Nombre">
+    <input type="email" placeholder="Correo electrónico">
+    <button>Enviar</button>
+  </form>
+</body>
+</html>
+   -->
+
+
+<!-- Se mejoró la accesibilidad del formulario al agregar etiquetas `<label>` asociadas a los campos para lectores de pantalla, 
+    mensajes de ayuda con `aria-describedby`, validación con `required`, y descripciones adicionales con `aria-label, y estilo CSS para mejorar la disposición-->
+
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+      <title>Registro</title>
+      <style>
+        label {
+          display: block;
+          margin-bottom: 5px;
+        }
+    
+        input {
+          margin-bottom: 10px;
+          padding: 8px;
+          width: 100%;
+          max-width: 300px;
+        }
+    
+        span {
+          display: block; 
+          margin-top: 5px;
+          font-size: 0.9em;
+          color: #555;
+        }
+    
+        button {
+          padding: 10px;
+          background-color: #4c77af;
+          color: white;
+          border: none;
+          cursor: pointer;
+        }
+      </style>
+    </head>
+    <body>
+    
+      <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Nombre" required aria-label="nombre-label">
+        <span id="nombre-ayuda" aria-describedby="nombre-ayuda">Introduce tu nombre completo.</span>
+        <br>
+    
+        <label for="correo">Correo electrónico:</label>
+        <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required aria-label="correo-label">
+        <span id="correo-ayuda" aria-describedby="correo-ayuda">Introduce tu correo electrónico.</span>
+        <br>
+    
+        <button id="boton-enviar" aria-label="Enviar formulario" aria-label="boton-enviar-label">Enviar</button>
+        <span id="boton-enviar-ayuda" aria-describedby="boton-enviar-ayuda">Enviar el formulario.</span>
+      </form>
+    
+    </body>
+    </html>
+    

@@ -1,0 +1,47 @@
+Ejercicio 9. Página con contenido multimedia
+<!--
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Video Educativo</title>
+</head>
+<body>
+  <h1>Cómo cocinar pasta</h1>
+  <video controls>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+</body>
+</html>
+-->
+
+<!-- 
+Mejoras de accesibilidad implementadas:
+1. Se añadió el atributo aria-label al elemento <video> para describir el contenido del video.
+2. Se agregó un elemento <track> con subtítulos en español para personas con discapacidades auditivas.
+3. Se proporcionó una transcripción del contenido del video para usuarios que no pueden ver ni escuchar el video.
+4. Se incluyó un mensaje alternativo en caso de que el navegador no soporte la reproducción de videos.
+-->
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Educativo</title>
+</head>
+<body>
+  <h1>Cómo cocinar pasta</h1>
+  <video controls aria-label="Video tutorial sobre cómo cocinar pasta">
+    <source src="video.mp4" type="video/mp4">
+    <!-- subtítulos para accesibilidad -->
+    <track src="subtitulos.vtt" kind="subtitles" srclang="es" label="Español" default>
+    Tu navegador no soporta el elemento <code>video</code>.
+  </video>
+  <!-- transcripción del video -->
+  <div>
+    <h2>Transcripción del video</h2>
+    <p>En este video aprenderás cómo cocinar pasta en su punto ideal...</p>
+  </div>
+</body>
+</html>

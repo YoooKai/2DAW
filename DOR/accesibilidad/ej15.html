@@ -1,0 +1,83 @@
+<!--Ejercicio 15. Menú interactivo
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Menú Interactivo</title>
+  <style>
+    .submenu {
+      display: none;
+    }
+    .menu:hover .submenu {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h1>Menú de Opciones</h1>
+  <div class="menu">
+    <p>Opciones</p>
+    <div class="submenu">
+      <p>Opción 1</p>
+      <p>Opción 2</p>
+      <p>Opción 3</p>
+    </div>
+  </div>
+</body>
+</html>
+-->
+
+<!--
+Accesibilidad implementada:
+1. se añadió un botón interactivo para activar el submenú, lo que permite a los usuarios con teclado acceder al contenido.
+2. se añadió el atributo "aria-expanded" al botón para indicar si el submenú está abierto o cerrado, lo que proporciona información adicional a los usuarios de lectores de pantalla.
+3. el submenú es accesible mediante la tecla Tab cuando el menú está enfocado.
+4. se usa el evento 'click' para alternar la visibilidad del submenú de manera accesible.
+-->
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menú Interactivo</title>
+  <style>
+    .submenu {
+      display: none;
+    }
+    .menu:focus-within .submenu {
+      display: block;
+    }
+    .menu button {
+      cursor: pointer;
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Menú de Opciones</h1>
+  <div class="menu" tabindex="0">
+    <button aria-expanded="false" aria-controls="submenu">Opciones</button>
+    <div class="submenu" id="submenu">
+      <p>Opción 1</p>
+      <p>Opción 2</p>
+      <p>Opción 3</p>
+    </div>
+  </div>
+
+  <script>
+    const menuButton = document.querySelector('.menu button');
+    const submenu = document.querySelector('.submenu');
+    
+    menuButton.addEventListener('click', () => {
+      const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', !isExpanded);
+      submenu.style.display = isExpanded ? 'none' : 'block';
+    });
+  </script>
+</body>
+</html>
