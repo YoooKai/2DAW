@@ -1,0 +1,46 @@
+<!--
+    Ejercicio 6. Contenido dinámico sin notificación
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Notificaciones</title>
+  <script>
+    function mostrarNotificacion() {
+      document.getElementById('notificacion').innerText = 'Cambio guardado';
+    }
+  </script>
+</head>
+<body>
+  <button onclick="mostrarNotificacion()">Guardar</button>
+  <div id="notificacion"></div>
+</body>
+</html>
+-->
+
+<!-- Se agregó accesibilidad al contenido dinámico mediante `aria-live="polite"`, que indica a los lectores de pantalla 
+    que se debe anunciar el texto cuando cambie, y `role="status"`, para definir la función del mensaje.
+     También se incluyó `aria-hidden="true"` inicialmente, para ocultar el mensaje hasta que sea relevante. -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Notificaciones Accesibles</title>
+  <script>
+    function mostrarNotificacion() {
+      const notificacion = document.getElementById('notificacion');
+      notificacion.innerText = 'Cambio guardado';
+      notificacion.setAttribute('aria-hidden', 'false');
+    }
+  </script>
+</head>
+<body>
+  <h1>Ejemplo de Notificaciones Accesibles</h1>
+  <button onclick="mostrarNotificacion()">Guardar</button>
+  <div id="notificacion" 
+       aria-live="polite" 
+       role="status" 
+       aria-hidden="true">
+  </div>
+</body>
+</html>
