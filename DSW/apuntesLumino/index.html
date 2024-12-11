@@ -1,0 +1,16 @@
+<!-- Shared/include/breadcrumbs.html -->
+
+<div id="breadcrumbs">
+    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            {% for breadcrumb in breadcrumbs %}
+            <li class="breadcrumb-item">
+                <a href="{{ breadcrumb.url }}">{{ breadcrumb.title }}</a>
+            </li>
+            {% endfor %}
+            {% if current_page %}
+            <li class="breadcrumb-item active" aria-current="page">{{ current_page.title }}</li>
+            {% endif %}
+        </ol>
+    </nav>
+</div>
