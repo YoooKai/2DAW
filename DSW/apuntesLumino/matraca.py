@@ -38,3 +38,6 @@ def student_label(formset, form_index):
 
 # templatetags en plantilla
 # <span class="{{ css_class }}">{{ mark }}</span>
+
+# Plantilla de mark_list
+# <td> {{% pretty_mark enrollment.mark %}}</td>
