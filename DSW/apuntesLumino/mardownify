@@ -1,0 +1,15 @@
+# Utilizar Markdownify
+
+{{ lesson.content | markdownify }}
+
+markdownify:
+'whitelist_tags: [
+    'a'
+    'b'
+    'i'
+    'li'
+    'ol'
+    'p'
+    'ul'
+    'h5'
+]'
