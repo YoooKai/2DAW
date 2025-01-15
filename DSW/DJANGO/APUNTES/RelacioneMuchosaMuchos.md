@@ -273,3 +273,167 @@ book_customers = Loan.objects.filter(book=go1984).values_list('customer__name', 
 El método values_list() se utiliza en consultas de Django para obtener una lista de tuplas con los valores de ciertos campos de los modelos. Es útil cuando quieres seleccionar solo algunos campos específicos de la base de datos en lugar de cargar toda la instancia del modelo.
 
 El parámetro `flat=True` se utiliza cuando solo se solicita un único campo en la consulta. En ese caso, flat=True hace que Django devuelva una lista simple con los valores de ese campo, en lugar de una lista de tuplas.
+
+
+¡Claro! Vamos a analizar lo que está sucediendo en el ejemplo y cómo trabajar con relaciones **ManyToMany** con un modelo intermedio explícito en Django.
+
+---
+
+### **Lo que hace el ejemplo**
+
+Cuando tienes una relación **ManyToMany** con un modelo intermedio y quieres añadir una relación personalizada (por ejemplo, con valores adicionales en el modelo intermedio), puedes hacerlo usando el método `.add()` y el argumento `through_defaults`.
+
+#### **Ejemplo del código**:
+
+```python
+post_python.labels.add(
+    label_tech,
+    through_defaults={'labelled_because': 'Python is cool tech'}
+)
+```
+
+#### **Qué significa esto:**
+1. **`post_python`**: Es una instancia del modelo que tiene el campo `ManyToManyField` llamado `labels`.
+2. **`labels.add()`**: Es el método que añade una relación Many-to-Many.
+3. **`label_tech`**: Es una instancia del modelo relacionado que quieres asociar.
+4. **`through_defaults`**: Es un diccionario que define valores adicionales para el modelo intermedio (en este caso, el campo `labelled_because`).
+
+---
+
+### **Cómo se configura un modelo ManyToMany con un modelo intermedio**
+
+Supongamos que tenemos los siguientes modelos para un blog con etiquetas (labels):
+
+```python
+from django.db import models
+
+class Post(models.Model):
+    title = models.CharField(max_length=100)
+
+class Label(models.Model):
+    name = models.CharField(max_length=50)
+
+class PostLabel(models.Model):  # Modelo intermedio
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    label = models.ForeignKey(Label, on_delete=models.CASCADE)
+    labelled_because = models.CharField(max_length=255)  # Campo adicional
+```
+
+Y la relación Many-to-Many en `Post` debe configurarse con el modelo intermedio explícito:
+
+```python
+class Post(models.Model):
+    title = models.CharField(max_length=100)
+    labels = models.ManyToManyField(Label, through='PostLabel')
+```
+
+---
+
+### **Añadir datos relacionalmente (como en el ejemplo)**
+
+Cuando usas un modelo intermedio explícito, no puedes usar directamente `post_python.labels.add(label_tech)` sin más, porque Django necesita saber cómo rellenar los campos adicionales del modelo intermedio (`labelled_because`, en este caso).
+
+Por eso, usas `through_defaults` para proporcionar esos valores adicionales:
+
+```python
+# Supongamos que ya tienes instancias de Post y Label
+post_python = Post.objects.get(title="Python Post")
+label_tech = Label.objects.get(name="Tech")
+
+# Añadiendo la relación con un valor personalizado para el campo intermedio
+post_python.labels.add(
+    label_tech,
+    through_defaults={'labelled_because': 'Python is cool tech'}
+)
+```
+
+Esto crea automáticamente una entrada en el modelo intermedio (`PostLabel`) con los datos proporcionados.
+
+---
+
+### **Cómo hacer esto en una vista**
+
+Si necesitas hacer esto en una vista, digamos en una **vista basada en función (FBV)**, podría lucir algo así:
+
+```python
+from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
+from .models import Post, Label
+
+def add_label_to_post(request, post_id, label_id):
+    post = get_object_or_404(Post, id=post_id)
+    label = get_object_or_404(Label, id=label_id)
+
+    # Añadir la relación con un campo adicional
+    post.labels.add(
+        label,
+        through_defaults={'labelled_because': 'Added from the view'}
+    )
+
+    return JsonResponse({'message': 'Label added successfully!'})
+```
+
+En este caso:
+1. Recuperas las instancias de `Post` y `Label` usando sus IDs.
+2. Usas el método `.add()` con `through_defaults` para añadir la relación.
+3. Respondes con un mensaje JSON que confirma el éxito.
+
+---
+
+### **Cómo hacerlo en una vista basada en clase (CBV)**
+
+Si usas vistas basadas en clase, podrías hacerlo en un `FormView` o `CreateView`. Aquí tienes un ejemplo:
+
+```python
+from django.views import View
+from django.shortcuts import get_object_or_404, redirect
+from .models import Post, Label
+
+class AddLabelToPostView(View):
+    def post(self, request, post_id, label_id):
+        post = get_object_or_404(Post, id=post_id)
+        label = get_object_or_404(Label, id=label_id)
+
+        # Añadir la relación con un campo adicional
+        post.labels.add(
+            label,
+            through_defaults={'labelled_because': 'Added via CBV'}
+        )
+
+        return redirect('post_detail', pk=post_id)  # Redirigir a algún lugar
+```
+
+En este caso:
+- Se utiliza el método `post` para manejar solicitudes POST.
+- Se realiza el mismo proceso de añadir la relación con valores adicionales.
+
+---
+
+### **¿Qué pasa si quiero añadir varios datos a la vez?**
+
+Si quieres añadir varias relaciones al modelo intermedio, puedes iterar y usar `.add()` repetidamente o usar `bulk_create` directamente en el modelo intermedio:
+
+```python
+# Múltiples etiquetas para un post
+labels = Label.objects.filter(category="Programming")
+
+enrollments = [
+    PostLabel(post=post_python, label=label, labelled_because="Bulk add example")
+    for label in labels
+]
+
+# Crear todas las relaciones en una sola operación
+PostLabel.objects.bulk_create(enrollments)
+```
+
+Esto es útil para optimizar la inserción de múltiples relaciones al mismo tiempo.
+
+---
+
+### **Resumen**
+
+- **`add` con `through_defaults`**: Se usa para añadir datos relacionales personalizados cuando tienes un modelo intermedio con campos adicionales.
+- **Vistas**: Puedes implementar esto en FBVs o CBVs recuperando instancias de los modelos y usando `.add()`.
+- **Opciones avanzadas**: Usa `bulk_create` en el modelo intermedio para manejar muchas relaciones de manera eficiente.
+
+Si necesitas un caso más específico, ¡házmelo saber! 😊
