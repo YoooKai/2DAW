@@ -429,11 +429,29 @@ PostLabel.objects.bulk_create(enrollments)
 Esto es útil para optimizar la inserción de múltiples relaciones al mismo tiempo.
 
 ---
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from .forms import EnrollSubjectsForm
+from .models import Subject, Enrollment
 
-### **Resumen**
+@login_required
+def enroll_subjects(request):
+    if request.method == 'POST':
+        # Pasar datos del usuario al formulario
+        form = EnrollSubjectsForm(data=request.POST)
+        if form.is_valid():
+            subjects = form.cleaned_data['subjects']  # Obtener las materias seleccionadas
+            for subject in subjects:
+                # Usar `through_defaults` para agregar datos al modelo intermedio
+                request.user.enrolled_subjects.add(
+                    subject,
+                    through_defaults={'enrollment_date': '2025-01-15'}  # Fecha actual como ejemplo
+                )
+            messages.success(request, 'Successfully enrolled in the chosen subjects.')
+            return redirect('subjects:subject-list')
+    else:
+        form = EnrollSubjectsForm()
 
-- **`add` con `through_defaults`**: Se usa para añadir datos relacionales personalizados cuando tienes un modelo intermedio con campos adicionales.
-- **Vistas**: Puedes implementar esto en FBVs o CBVs recuperando instancias de los modelos y usando `.add()`.
-- **Opciones avanzadas**: Usa `bulk_create` en el modelo intermedio para manejar muchas relaciones de manera eficiente.
+    return render(request, 'subjects/enroll.html', {'form': form})
 
-Si necesitas un caso más específico, ¡házmelo saber! 😊
