@@ -454,7 +454,37 @@ def enroll_subjects(request):
     else:
         form = EnrollSubjectsForm()
 
-```
+
 
     return render(request, 'subjects/enroll.html', {'form': form})
 
+
+from django.shortcuts import render, redirect
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from .forms import EnrollSubjectsForm
+from .models import Subject, Enrollment
+
+@login_required
+def unenroll_subjects(request):
+    if request.method == 'POST':
+        # Crear un formulario con las materias en las que el usuario ya está inscrito
+        form = EnrollSubjectsForm(
+            data=request.POST,
+            initial={'subjects': request.user.enrolled_subjects.all()}
+        )
+        if form.is_valid():
+            subjects = form.cleaned_data['subjects']
+            for subject in subjects:
+                # Eliminar la relación usando remove()
+                request.user.enrolled_subjects.remove(subject)
+            messages.success(request, 'Successfully unenrolled from the chosen subjects.')
+            return redirect('subjects:subject-list')
+    else:
+        # Mostrar solo las materias en las que ya está inscrito el usuario
+        form = EnrollSubjectsForm(
+            initial={'subjects': request.user.enrolled_subjects.all()}
+        )
+
+    return render(request, 'subjects/unenroll.html', {'form': form})
+```
