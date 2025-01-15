@@ -429,6 +429,7 @@ PostLabel.objects.bulk_create(enrollments)
 Esto es útil para optimizar la inserción de múltiples relaciones al mismo tiempo.
 
 ---
+```python
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -452,6 +453,8 @@ def enroll_subjects(request):
             return redirect('subjects:subject-list')
     else:
         form = EnrollSubjectsForm()
+
+```
 
     return render(request, 'subjects/enroll.html', {'form': form})
 
